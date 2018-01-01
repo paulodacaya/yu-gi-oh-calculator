@@ -1,0 +1,103 @@
+/* ===================================================== 
+Import CSS files
+===================================================== */
+@import url('./config.css');
+
+/* ===================================================== 
+Web fonts
+===================================================== */
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+/* ===================================================== 
+HTML Tag Styles
+===================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+img {
+  height: 100px;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ===================================================== 
+Component Styles
+===================================================== */
+#root {
+  height: 100vh;
+  background-color: var(--grey);
+  
+}
+
+.container {
+  background-color: var(--black);
+  border-radius: 1em;
+  width: 60%;
+  height: 400px; 
+  text-align: center;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+     -moz-box-shadow: 0 10px 6px -6px #777;
+          box-shadow: 0 10px 6px -6px #777;
+
+  color: white;
+  font-size: 1.2em;
+}
+
+.header {
+  margin-top: 1em;
+}
+
+.header h2 {
+  margin-bottom: 2.5em;
+}
+
+#players-input-form {
+  margin-top: 1em;
+}
+#players-input-form input[type=text] {
+  margin-bottom: 2em;
+  height: 3em;
+  border: solid 2px var(--yellow);
+  border-radius: 2em;
+  text-align: center;
+}
+
+#players-input-form input[type=text]::-webkit-input-placeholder {
+  font-size: 1.3em;
+}
+
+#players-input-form input[type=text]:first-child {
+  margin-right: 4em;
+}
+
+#players-input-form input[type=submit] {
+
+}
+
+
+
+
+
+
+/* ===================================================== 
+Media Queries
+===================================================== */
