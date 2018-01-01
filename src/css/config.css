@@ -6,10 +6,11 @@ CSS variables
 	
 	
 	/* colors */
+	--white: #fff;
 	--grey: rgb(230, 230, 230);
 	--black: rgb(20, 20, 20);
 	--yellow: rgb(219, 204, 27);
-	
+	--lightyellow: rgb(240, 240, 191);
 	
 }
 

@@ -29,7 +29,7 @@ export default class App extends Component {
             <button
               type="submit"
               name="submit"
-              value="submit" >Go</button>
+              value="submit" >go</button>
           </form>
         </div>
 

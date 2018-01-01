@@ -46,6 +46,7 @@ Component Styles
   background-color: var(--black);
   border-radius: 1em;
   width: 60%;
+  max-width: 550px;
   height: 400px; 
   text-align: center;
   
@@ -58,12 +59,12 @@ Component Styles
      -moz-box-shadow: 0 10px 6px -6px #777;
           box-shadow: 0 10px 6px -6px #777;
 
-  color: white;
+  color: var(--white, white);
   font-size: 1.2em;
 }
 
 .header {
-  margin-top: 1em;
+  margin-top: 1.2em;
 }
 
 .header h2 {
@@ -72,26 +73,56 @@ Component Styles
 
 #players-input-form {
   margin-top: 1em;
+  font-family: 'Didact Gothic', sans-serif;
 }
 #players-input-form input[type=text] {
   margin-bottom: 2em;
-  height: 3em;
+  height: 4em;
+  width: 13.5em;
   border: solid 2px var(--yellow);
   border-radius: 2em;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
 }
 
 #players-input-form input[type=text]::-webkit-input-placeholder {
   font-size: 1.3em;
 }
 
+#players-input-form input[type=text]:focus {
+  background-color: var(--lightyellow);
+}
+
 #players-input-form input[type=text]:first-child {
   margin-right: 4em;
 }
 
-#players-input-form input[type=submit] {
-
+#players-input-form button {
+  padding: 0.2em 2.2em;
+  border-radius: 0.6em;
+  background-color: transparent;
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.2em;
+  
+  transition: color 500ms ease-in-out,
+              box-shadow 500ms ease-in-out;
+  
 }
+
+#players-input-form button:hover,
+#players-input-form button:focus {
+  color: var(--white, white);
+  box-shadow: 0 0 40px 40px var(--yellow) inset;
+  
+}
+
+
 
 
 
