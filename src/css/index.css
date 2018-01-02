@@ -46,7 +46,8 @@ Intro Card
 ============================= */
 #root {
   height: 100vh;
-  background-color: var(--grey);
+  background: url("../img/hexgrey-bg.jpg") no-repeat center top,
+              var(--grey);
   
 }
 

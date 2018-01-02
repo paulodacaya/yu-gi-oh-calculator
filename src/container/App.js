@@ -20,7 +20,7 @@ export default class App extends Component {
 
 
           <DuelBoard />
-
+          <div></div>
           
         </div>
       </Fragment>
