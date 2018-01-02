@@ -3,15 +3,26 @@ CSS variables
 ===================================================== */
 
 :root {
-	
+	--image-height: 50px;
+	--header-height: 7em;
+
+	--score-boardmw: 800px;
+	--player-fontsize: 2em;
+	--lp-fontsize: 6em;
 	
 	/* colors */
 	--white: #fff;
 	--grey: rgb(230, 230, 230);
 	--black: rgb(20, 20, 20);
+	
 	--yellow: rgb(219, 204, 27);
 	--lightyellow: rgb(240, 240, 191);
 	
+	--red: #da4453;
+	--lightred: #ed5565;
+
+	--orange: #e9573f;
+	--lightorange: #fc6e51;
 }
 
 
