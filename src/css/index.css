@@ -18,6 +18,9 @@ HTML Tag Styles
 body {
   font-family: 'Didact Gothic', sans-serif;
   font-size: 16px;
+  
+  background: url("../assets/hexgrey-bg.jpg") no-repeat center top,
+              var(--grey);
 }
 
 h2 {
@@ -46,9 +49,6 @@ Intro Card
 ============================= */
 #root {
   height: 100vh;
-  background: url("../img/hexgrey-bg.jpg") no-repeat center top,
-              var(--grey);
-  
 }
 
 .container {
@@ -283,6 +283,28 @@ Dueling Styles - Duelist
   color: var(--lightorange);
   text-shadow: -1px -1px 0 var(--orange);
 }
+
+/* ========================== 
+Yu-Gi-Oh Dueling Rules Styles
+============================= */
+.rulebook-container {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rulebook-page {  
+  margin-bottom: 0.5em;
+}
+
+
+
+
+
+
+
+
 /* ===================================================== 
 Media Queries
 ===================================================== */
