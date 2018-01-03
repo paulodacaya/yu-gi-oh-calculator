@@ -5,7 +5,7 @@ const Header = props => (
   <header>
     <span className="arrow"></span>
     <img 
-      src={ require('../../img/yugioh-logo.png') } 
+      src={ require('../../assets/yugioh-logo.png') } 
       alt="classic yu-gi-oh logo"/>
     <ul>
       <li>dueling</li>

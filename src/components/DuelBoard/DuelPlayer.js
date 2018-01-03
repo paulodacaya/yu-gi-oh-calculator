@@ -6,7 +6,7 @@ const DuelPlayer = props => (
     <span>player 1</span>
     
     <div className="scores">
-      <img src={ require('../../img/undo.svg') } alt="undo icon" />
+      <img src={ require('../../assets/undo.svg') } alt="undo icon" />
       <p>lp</p>
       <h4>8000</h4>
     </div>

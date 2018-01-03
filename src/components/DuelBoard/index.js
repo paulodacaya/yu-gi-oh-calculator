@@ -6,7 +6,7 @@ const DuelBoard = props => (
   <main className="duel-board">
 
     <DuelPlayer />
-    <img src={ require('../../img/versus-img.png') } alt="versus logo" />
+    <img src={ require('../../assets/versus-img.png') } alt="versus logo" />
     <DuelPlayer />
   </main>
 );
