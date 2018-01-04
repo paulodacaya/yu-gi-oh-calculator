@@ -18,7 +18,7 @@ HTML Tag Styles
 body {
   font-family: 'Didact Gothic', sans-serif;
   font-size: 16px;
-  
+
   background: url("../assets/hexgrey-bg.jpg") no-repeat center top,
               var(--grey);
 }
@@ -29,6 +29,11 @@ h2 {
 
 h4 {
   font-size: var(--lp-fontsize);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
@@ -148,27 +153,8 @@ Dueling Styles - Header
   height: var(--header-height);
 }
 
-.arrow {
-  margin-right: 9.3em;
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-  background: transparent;
-  border-top: 0.3rem solid var(--white, white);
-  border-right: 0.3rem solid var(--white, white);
-  box-shadow: 0 0 0 var(--white, white);
-
-  transform: translateX(110%) rotate(225deg);
-  transition: 200ms ease;
-}
-.arrow:hover {
-  border-top: 0.3rem solid var(--yellow);
-	border-right: 0.3rem solid var(--yellow);
-  box-shadow: .2rem -.2rem 0 var(--white);
-  transform: translateX(90%) rotate(225deg);
-}
-
-.duel-container img {
+.duel-container header img {
+  margin-left: 2em;
   height: var(--image-height);
 }
 
@@ -182,8 +168,8 @@ Dueling Styles - Header
 .duel-container ul li {
   border: 1px solid var(--yellow);
   border-radius: 0.6em;
-  padding: 0.3em;
   cursor: pointer;
+  padding: 0.3em 0em;
 }
 
 .duel-container ul li:nth-child(1),
@@ -192,11 +178,22 @@ Dueling Styles - Header
 }
 
 .duel-container ul li:hover,
-.duel-container ul li:focus,
-.duel-container ul li:active {
+.duel-container ul li:focus {
   color: var(--white);
   background-color: var(--yellow);
 }
+
+.duel-container a {
+  padding: 2.6px 2px;
+}
+
+.active {
+  color: var(--white);
+  background-color: var(--yellow);
+  border-radius: inherit;
+}
+
+
 
 /* ========================== 
 Dueling Styles - Duelist
@@ -309,19 +306,10 @@ Yu-Gi-Oh Dueling Rules Styles
 Media Queries
 ===================================================== */
 
-@media (min-width: 840px) {
+@media (min-width: 500px) {
   /* ========================== 
   Dueling Styles - Header
   ============================= */
-  :root {
-    --image-height: 60px;
-    --header-height: 8em;
-  }
-
-  .arrow {
-    margin-right: 28em;
-  }
-
   .duel-container ul {
     flex-direction: row;
     align-items: center;
@@ -331,11 +319,23 @@ Media Queries
   .duel-container ul li {
     margin-left: 0.4em;
   } 
+}
+
+@media (min-width: 700px) {
+  /* ========================== 
+  Dueling Styles - Header
+  ============================= */
+  :root {
+    --image-height: 60px;
+    --header-height: 8em;
+  }
+
   /* ========================== 
   Dueling Styles - Duelist
   ============================= */
   .duel-board {
     flex-direction: row;
+    padding-left: 0.5em;
   }
 }
 
@@ -349,10 +349,6 @@ Media Queries
     --score-boardmw: 1000px;
     --player-fontsize: 2.5em;
     --lp-fontsize: 8em;
-  }
-
-  .arrow {
-    margin-right: 33.5em;
   }
 
   .duel-container ul  {

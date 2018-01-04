@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import PlayersInputForm from './PlayersInputForm';
 
-const CardHeader = props => (
+const Card = props => (
 
   <div className="container">
     <div className="card-header">
@@ -16,4 +16,4 @@ const CardHeader = props => (
   </div>
 );
 
-export default CardHeader;
+export default Card;

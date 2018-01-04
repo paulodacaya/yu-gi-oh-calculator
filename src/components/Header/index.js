@@ -1,16 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const Header = props => (
+const Header = () => (
   
   <header>
-    <span className="arrow"></span>
     <img 
       src={ require('../../assets/yugioh-logo.png') } 
-      alt="classic yu-gi-oh logo"/>
+      alt="classic yu-gi-oh logo" />
+      
     <ul>
-      <li>dueling</li>
-      <li>official dueling rules</li>
-      <li>how to use app</li>
+      <li><NavLink to="/duel/duelboard">dueling</NavLink></li>
+      <li><NavLink to="/duel/rules">official dueling rules</NavLink></li>
+      <li><NavLink to="/duel/app-guide">how to use app</NavLink></li>
     </ul>
   </header>
 );
