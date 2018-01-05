@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Header = () => (
   
   <header>
+    
     <img 
       src={ require('../../assets/yugioh-logo.png') } 
       alt="classic yu-gi-oh logo" />

@@ -158,27 +158,27 @@ Dueling Styles - Header
   height: var(--image-height);
 }
 
-.duel-container ul {
+header ul {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-right: 1.2em;
 }
 
-.duel-container ul li {
+header ul li {
   border: 1px solid var(--yellow);
   border-radius: 0.6em;
   cursor: pointer;
   padding: 0.3em 0em;
 }
 
-.duel-container ul li:nth-child(1),
-.duel-container ul li:nth-child(2) {
+header ul li:nth-child(1),
+header ul li:nth-child(2) {
   margin-bottom: 0.1em;
 }
 
-.duel-container ul li:hover,
-.duel-container ul li:focus {
+header ul li:hover,
+header ul li:focus {
   color: var(--white);
   background-color: var(--yellow);
 }
@@ -295,6 +295,9 @@ Yu-Gi-Oh Dueling Rules Styles
   margin-bottom: 0.5em;
 }
 
+/* ========================== 
+How to use App Styles
+============================= */
 
 
 
@@ -310,13 +313,13 @@ Media Queries
   /* ========================== 
   Dueling Styles - Header
   ============================= */
-  .duel-container ul {
+  header ul {
     flex-direction: row;
     align-items: center;
 
     font-size: 1.24em;
   } 
-  .duel-container ul li {
+  header ul li {
     margin-left: 0.4em;
   } 
 }
@@ -329,7 +332,11 @@ Media Queries
     --image-height: 60px;
     --header-height: 8em;
   }
-
+  
+  header ul  {
+    font-size: 1.5em;
+  }
+  
   /* ========================== 
   Dueling Styles - Duelist
   ============================= */
@@ -351,11 +358,19 @@ Media Queries
     --lp-fontsize: 8em;
   }
 
-  .duel-container ul  {
-    font-size: 1.5em;
-  } 
   /* ========================== 
   Dueling Styles - Duelist
   ============================= */
 
+}
+
+@media (min-width: 1400px) {
+  /* ========================== 
+  Dueling Styles - Header
+  ============================= */
+  :root {
+    --score-boardmw: 1200px;
+    --player-fontsize: 3.0em;
+    --lp-fontsize: 9em;
+  }
 }
