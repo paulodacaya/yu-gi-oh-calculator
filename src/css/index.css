@@ -221,9 +221,16 @@ Dueling Styles - Duelist
 }
 
 .player span {
-  font-size: var(--player-fontsize);
-  background-color: darkgray;
+  background: url("../assets/name-plate.svg") no-repeat;
+  background-size: cover;
+  display: block;
+  height: var(--nameplate-h);
+  
   text-transform: uppercase;
+  text-align: center;
+
+  font-size: var(--player-fontsize);
+  line-height: var(--playertag-lh);
 }
 
 .scores {
@@ -299,6 +306,50 @@ Yu-Gi-Oh Dueling Rules Styles
 How to use App Styles
 ============================= */
 
+.appguide {
+  padding: 1em;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.appguide div {
+  margin-bottom: 2em;
+}
+.appguide h1,
+.appguide h2 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.appguide h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase; 
+}
+.appguide h2 {
+  font-size: 1.2em;
+}
+.appguide ul > li,
+.appguide img {
+  margin-bottom: 1em;
+}
+.appguide span {
+  text-transform: capitalize;
+  font-weight: 700;
+  color: var(--red);
+}
+.appguide img {
+  width: 350px;
+  height: 300px;
+  display: block;
+  margin: 0 auto 2em;
+  border: 2px solid var(--black);
+  border-radius: 0.6em;
+}
+
+
+
+
+
+
 
 
 
@@ -336,13 +387,12 @@ Media Queries
   header ul  {
     font-size: 1.5em;
   }
-  
+
   /* ========================== 
   Dueling Styles - Duelist
   ============================= */
   .duel-board {
     flex-direction: row;
-    padding-left: 0.5em;
   }
 }
 
@@ -356,6 +406,17 @@ Media Queries
     --score-boardmw: 1000px;
     --player-fontsize: 2.5em;
     --lp-fontsize: 8em;
+    --nameplate-h: 70px;
+    --playertag-lh: 70px;
+  }
+
+  .appguide {
+    display: flex;
+    max-width: 1000px;
+  }
+
+  .appguide div {
+    flex: 1;
   }
 
   /* ========================== 
@@ -372,5 +433,7 @@ Media Queries
     --score-boardmw: 1200px;
     --player-fontsize: 3.0em;
     --lp-fontsize: 9em;
+    --nameplate-h: 78px;
+    --playertag-lh: 75px;
   }
 }

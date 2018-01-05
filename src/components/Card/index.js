@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import PlayersInputForm from './PlayersInputForm';
 
-const Card = props => (
+const Card = () => (
 
   <div className="container">
     <div className="card-header">
