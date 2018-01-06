@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PlayersInputForm from './PlayersInputForm';
 
-const Card = () => (
+const Card = props => (
 
   <div className="container">
     <div className="card-header">
@@ -11,8 +12,21 @@ const Card = () => (
       <p>please enter the names of the two duelist!</p>
     </div>
 
-    <PlayersInputForm />
+    <PlayersInputForm 
+      player1={props.pendingPlayer1}
+      player2={props.pendingPlayer2}
+      handlePlayerInput={props.handlePlayerInput}
+      playersSubmitHandler={props.playersSubmitHandler}
+      fireRedirect={props.fireRedirect} />
   </div>
 );
+
+Card.proptypes = {
+  player1: PropTypes.string.isRequired,
+  player2: PropTypes.string.isRequired,
+  handlePlayerInput: PropTypes.func.isRequired,
+  playersSubmitHandler: PropTypes.func.isRequired,
+  fireRedirect: PropTypes.bool.isRequired,
+};
 
 export default Card;

@@ -394,6 +394,14 @@ Media Queries
   .duel-board {
     flex-direction: row;
   }
+
+  .appguide {
+    display: flex;
+    max-width: 1000px;
+  }
+  .appguide div {
+    flex: 1;
+  }
 }
 
 
@@ -410,14 +418,7 @@ Media Queries
     --playertag-lh: 70px;
   }
 
-  .appguide {
-    display: flex;
-    max-width: 1000px;
-  }
-
-  .appguide div {
-    flex: 1;
-  }
+  
 
   /* ========================== 
   Dueling Styles - Duelist
