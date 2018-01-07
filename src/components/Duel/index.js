@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
 //import components
@@ -7,7 +8,7 @@ import DuelBoard from './DuelBoard';
 import RuleBook from './RuleBook';
 import AppGuide from './AppGuide';
 
-const Duel = () => (
+const Duel = props => (
   
   <div className="duel-container">
     <Header />
@@ -17,7 +18,9 @@ const Duel = () => (
     )} />
 
     <Route path="/duel/duelboard" render={ () => (
-      <DuelBoard />
+      <DuelBoard 
+        duelers={props.duelers}
+        toggleEditing={props.toggleEditing} />
     )} />
     
     <Route path="/duel/rules" render={ () => (
@@ -29,5 +32,10 @@ const Duel = () => (
     )} />
   </div>
 );
+
+Duel.propTypes = {
+  duelers: PropTypes.array.isRequired,
+  toggleEditing: PropTypes.func.isRequired,
+};
 
 export default Duel;

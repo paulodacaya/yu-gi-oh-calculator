@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Redirect from 'react-router-dom/Redirect';
+import { Redirect } from 'react-router-dom';
 
 const PlayersInputForm = props => (
 
@@ -9,18 +9,18 @@ const PlayersInputForm = props => (
           onSubmit={props.playersSubmitHandler}>
         {/* PLAYER 1 */}
         <input 
-          name="player1"
+          name="duelist1"
           type="text"
           onChange={props.handlePlayerInput}
-          value={props.player1}
+          value={props.duelist1}
           placeholder="player 1" />
         
         {/* PLAYER 2 */}
         <input
-          name="player2"
+          name="duelist2"
           type="text"
           onChange={props.handlePlayerInput}
-          value={props.player2}
+          value={props.duelist2}
           placeholder="player 2" />
 
         {/* SUBMIT BUTTON */}
@@ -39,8 +39,8 @@ const PlayersInputForm = props => (
 );
 
 PlayersInputForm.proptypes = {
-  player1: PropTypes.string.isRequired,
-  player2: PropTypes.string.isRequired,
+  duelist1: PropTypes.string.isRequired,
+  duelist2: PropTypes.string.isRequired,
   handlePlayerInput: PropTypes.func.isRequired,
   playersSubmitHandler: PropTypes.func.isRequired,
   fireRedirect: PropTypes.bool.isRequired,

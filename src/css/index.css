@@ -216,7 +216,11 @@ Dueling Styles - Duelist
 .duel-board span {
   font-size: 5em;
 }
-.duel-board img {
+.vs-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 6em;
 }
 
@@ -225,6 +229,7 @@ Dueling Styles - Duelist
   background-size: cover;
   display: block;
   height: var(--nameplate-h);
+  cursor: pointer;
   
   text-transform: uppercase;
   text-align: center;
@@ -247,6 +252,10 @@ Dueling Styles - Duelist
   font-size: 2em;
   text-transform: uppercase;
   align-self: flex-start;
+}
+.scores h4 {
+  text-align: right;
+  width: var(--lp-width);
 }
 
 .lp-btns {
@@ -414,6 +423,7 @@ Media Queries
     --score-boardmw: 1000px;
     --player-fontsize: 2.5em;
     --lp-fontsize: 8em;
+    --lp-width: 307px;
     --nameplate-h: 70px;
     --playertag-lh: 70px;
   }
@@ -434,6 +444,7 @@ Media Queries
     --score-boardmw: 1200px;
     --player-fontsize: 3.0em;
     --lp-fontsize: 9em;
+    --lp-width: 346px;
     --nameplate-h: 78px;
     --playertag-lh: 75px;
   }

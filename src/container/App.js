@@ -12,16 +12,22 @@ import '../css/index.css';
 export default class App extends Component {
   
   state = {
-    player1: "player1",
-    player2: "player2",
+    duelist1: "",
+    duelist2: "",
 
-    players: [
+    duelers: [
       {
+        index: 0,
         name: "player 1",
+        lifePoints: 8000,
+        isEditing: false,
       },
       {
+        index: 1,
         name: "player 2",
-      }
+        lifePoints: 8000,
+        isEditing: false,
+      },
     ],
 
     fireRedirect: false,
@@ -42,12 +48,52 @@ export default class App extends Component {
   playersSubmitHandler = event => {
     event.preventDefault(); //prevent default browser refresh
 
+    const { duelist1, duelist2 } = this.state;
+
     this.setState({
+      //THIS IS SUPER BAD, MUTATING STATE, 
+      //I am unable to complete the following!
+      duelers: [
+        {
+          index: 0,
+          name: duelist1,
+          lifePoints: 8000,
+          isEditing: false,
+        },
+        {
+          index: 1,
+          name: duelist2,
+          lifePoints: 8000,
+          isEditing: false,
+        },
+      ],
+
       fireRedirect: true,
     })
   }
 
+  //-------------------------------------------------------------
+  togglePlayerProperty = (property, index) => {
+    
+    this.setState({
+      duelers: this.state.duelers.map( duelist => {
+        if(index === duelist.index) {
+          return {
+            ...duelist,
+            [property]: !duelist[property],
+          }
+        }
 
+        return {
+          ...duelist,
+        }
+      })
+    });
+  }
+
+  toggleEditing = index => {
+    this.togglePlayerProperty('isEditing', index);
+  }
 
 
 
@@ -63,15 +109,17 @@ export default class App extends Component {
               
               <Route exact path="/" render={ () => (
                 <Card 
-                  player1={this.state.player1}
-                  player2={this.state.player2}
+                  duelist1={this.state.duelist1}
+                  duelist2={this.state.duelist2}
                   handlePlayerInput={this.handlePlayerInput}
                   playersSubmitHandler={this.playersSubmitHandler}
                   fireRedirect = {this.state.fireRedirect} />
               )} />
 
               <Route path="/duel" render={ () => (
-                <Duel />
+                <Duel 
+                  duelers={this.state.duelers}
+                  toggleEditing={this.toggleEditing} />
               )} />
               
               <Route component={NotFound} />

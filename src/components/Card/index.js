@@ -13,8 +13,8 @@ const Card = props => (
     </div>
 
     <PlayersInputForm 
-      player1={props.pendingPlayer1}
-      player2={props.pendingPlayer2}
+      duelist1={props.duelist1}
+      duelist2={props.duelist2}
       handlePlayerInput={props.handlePlayerInput}
       playersSubmitHandler={props.playersSubmitHandler}
       fireRedirect={props.fireRedirect} />
@@ -22,8 +22,8 @@ const Card = props => (
 );
 
 Card.proptypes = {
-  player1: PropTypes.string.isRequired,
-  player2: PropTypes.string.isRequired,
+  duelist1: PropTypes.string.isRequired,
+  duelist2: PropTypes.string.isRequired,
   handlePlayerInput: PropTypes.func.isRequired,
   playersSubmitHandler: PropTypes.func.isRequired,
   fireRedirect: PropTypes.bool.isRequired,
