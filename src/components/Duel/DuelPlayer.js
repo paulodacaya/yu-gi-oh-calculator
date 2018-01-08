@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DuelPlayerName from './DuelPlayerName';
+import DuelCalculator from './DuelCalculator';
 
 const DuelPlayer = props => (
 
@@ -25,10 +26,8 @@ const DuelPlayer = props => (
       <h4>{props.lifePoints}</h4>
     </div>
 
-    <div className="lp-btns">
-      <button>direct lifepoints</button>
-      <button>calculate</button>
-    </div>
+    <DuelCalculator 
+       />
   </div>
 );
 
