@@ -93,7 +93,7 @@ Intro Card
 #players-input-form input[type=text] {
   margin-bottom: 2em;
   height: 4em;
-  width: 13.5em;
+  width: 12em;
   border: solid 2px var(--yellow);
   border-radius: 2em;
   text-align: center;
@@ -111,7 +111,7 @@ Intro Card
 }
 
 #players-input-form input[type=text]:first-child {
-  margin-right: 4em;
+  margin-right: 2em;
 }
 
 #players-input-form button {
@@ -217,6 +217,7 @@ Dueling Styles - Duelist
   font-size: 5em;
 }
 .vs-image {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -228,6 +229,7 @@ Dueling Styles - Duelist
   background: url("../assets/name-plate.svg") no-repeat;
   background-size: cover;
   display: block;
+  position: relative;
   height: var(--nameplate-h);
   cursor: pointer;
   
@@ -236,6 +238,30 @@ Dueling Styles - Duelist
 
   font-size: var(--player-fontsize);
   line-height: var(--playertag-lh);
+}
+.player input[type=text] {
+  height: 60%;
+  width: 50%;
+  transform: translateY(-0.45rem);
+  background: transparent;
+
+  font-size: 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+.change-name-btn {
+  position: absolute;
+  top: 33%;
+  right: 11%;
+
+  text-transform: uppercase;
+  color: var(--white);
+  cursor: pointer;
+  letter-spacing: 1px;
+  background-color: var(--lightgreen);
+  border: solid 1px var(--green);
 }
 
 .scores {
@@ -369,6 +395,13 @@ How to use App Styles
 Media Queries
 ===================================================== */
 
+@media (min-height: 750px) {
+  .vs-image {
+    display: block;
+  }
+}
+
+
 @media (min-width: 500px) {
   /* ========================== 
   Dueling Styles - Header
@@ -381,7 +414,10 @@ Media Queries
   } 
   header ul li {
     margin-left: 0.4em;
-  } 
+  }
+  .vs-image {
+    display: block;
+  }
 }
 
 @media (min-width: 700px) {

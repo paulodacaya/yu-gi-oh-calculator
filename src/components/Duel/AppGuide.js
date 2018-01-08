@@ -22,11 +22,11 @@ const AppGuide = () => (
         alt="player component in 'Dueling' tab." />
 
       <ul>
-        <li><span>change player name:</span> double click on player name to input new or changed player name.</li>
-        <li><span>undo recent calculations:</span> click on undo button that will undo the most recent calculation.</li>
-        <li><span>direct lifepoints button:</span> inflict/increase direct lifepoints with single number. Example: Monster deals direct damage, no need for calculation.</li>
-        <li><span>calculate button:</span> inflict/increase lifepoints with a calculation. Example: Calculate the difference between two monster ATK values. This feauture becomes more useful when monster/card effects, spell/trap cards or chaining all come into play and multiple calculations are needed.</li>
-        <li><span>reset button:</span> reset lifepoints of both players to 8000.</li>
+        <li><span>change player name:</span> Double click on player name to change players name, hit 'enter' on keyboard or click 'OK'.</li>
+        <li><span>undo recent calculations:</span> Click on undo button that will undo the most recent calculation.</li>
+        <li><span>direct lifepoints button:</span> Inflict/increase direct lifepoints with single number. Example: Monster deals direct damage, no need for calculation.</li>
+        <li><span>calculate button:</span> Inflict/increase lifepoints with a calculation. Example: Calculate the difference between two monster ATK values. This feauture becomes more useful when monster/card effects, spell/trap cards or chaining all come into play and multiple calculations are needed.</li>
+        <li><span>reset button:</span> Reset lifepoints of both players to 8000.</li>
       </ul>
     </div>
   </div>

@@ -1,10 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import DuelPlayerName from './DuelPlayerName';
+
 const DuelPlayer = props => (
 
   <div className="player"> 
-    <span onDoubleClick={props.handleToggleEditing}>{props.name}</span>
+    <DuelPlayerName
+      isEditing={props.isEditing}
+      handleToggleEditing={props.handleToggleEditing}
+      handleNameEdits={ event => 
+        props.changePlayerName(event.target.value)
+      }
+      handleKeyPress={ event => 
+        props.onKeyPress(event.key)
+      } >
+      
+      {props.name}
+    </DuelPlayerName>
     
     <div className="scores">
       <img src={ require('../../assets/undo.svg') } alt="undo icon" />
@@ -24,6 +37,8 @@ DuelPlayer.propTypes = {
   lifePoints: PropTypes.number.isRequired,
   handleToggleEditing: PropTypes.func.isRequired,
   isEditing: PropTypes.bool.isRequired,
+  changePlayerName: PropTypes.func.isRequired,
+  onKeyPress: PropTypes.func.isRequired,
 };
 
 export default DuelPlayer;

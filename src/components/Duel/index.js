@@ -20,7 +20,9 @@ const Duel = props => (
     <Route path="/duel/duelboard" render={ () => (
       <DuelBoard 
         duelers={props.duelers}
-        toggleEditing={props.toggleEditing} />
+        toggleEditing={props.toggleEditing}
+        changePlayerName={props.changePlayerName}
+        onKeyPress={props.onKeyPress} />
     )} />
     
     <Route path="/duel/rules" render={ () => (
@@ -36,6 +38,8 @@ const Duel = props => (
 Duel.propTypes = {
   duelers: PropTypes.array.isRequired,
   toggleEditing: PropTypes.func.isRequired,
+  changePlayerName: PropTypes.func.isRequired,
+  onKeyPress: PropTypes.func.isRequired,
 };
 
 export default Duel;

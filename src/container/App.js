@@ -52,7 +52,7 @@ export default class App extends Component {
 
     this.setState({
       //THIS IS SUPER BAD, MUTATING STATE, 
-      //I am unable to complete the following!
+      //having trouble completing this.
       duelers: [
         {
           index: 0,
@@ -95,11 +95,45 @@ export default class App extends Component {
     this.togglePlayerProperty('isEditing', index);
   }
 
+  //-------------------------------------------------------------
+  changePlayerName = (name, PlayersIndex) => {
+    
+    this.setState({
+      duelers: this.state.duelers.map( (duelist, index) => {
+        if(index === PlayersIndex) {
+          return {
+            ...duelist,
+            name, //name: name,
+          }
+        }
 
+        //if index not match
+        return duelist;
+      })
+    });
+  }
+
+  onKeyPress = (key, PlayerIndex) => {
+    
+    this.state.duelers.map( (duelist, index) => {
+      if(index === PlayerIndex) {
+        if (key === "Enter") {
+          return this.toggleEditing(index);
+        }
+        return null;
+      }
+      return null;
+    }) 
+  } 
 
 
 
   
+
+
+
+
+
   //-------------------------------------------------------------
   render() {
     return (
@@ -119,7 +153,9 @@ export default class App extends Component {
               <Route path="/duel" render={ () => (
                 <Duel 
                   duelers={this.state.duelers}
-                  toggleEditing={this.toggleEditing} />
+                  toggleEditing={this.toggleEditing}
+                  changePlayerName={this.changePlayerName}
+                  onKeyPress={this.onKeyPress} />
               )} />
               
               <Route component={NotFound} />

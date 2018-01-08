@@ -16,6 +16,12 @@ const DuelBoard = props => (
             isEditing={duelist.isEditing}
             handleToggleEditing={() => {
               props.toggleEditing(duelist.index);
+            }}
+            changePlayerName={ text => {
+              props.changePlayerName(text, index);
+            }}
+            onKeyPress={ key => {
+             props.onKeyPress(key, index);
             }} />
         )
       )
@@ -32,6 +38,8 @@ const DuelBoard = props => (
 DuelBoard.propTypes = {
   duelers: PropTypes.array.isRequired,
   toggleEditing: PropTypes.func.isRequired,
+  changePlayerName: PropTypes.func.isRequired,
+  onKeyPress: PropTypes.func.isRequired,
 };
 
 export default DuelBoard; 
