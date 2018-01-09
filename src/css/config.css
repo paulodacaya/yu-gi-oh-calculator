@@ -15,7 +15,7 @@ CSS variables
 	
 	/* colors */
 	--white: #fff;
-	--grey: rgb(238, 238, 238);
+	--grey: #eeeeee;
 	--black: rgb(20, 20, 20);
 	
 	--yellow: rgb(219, 204, 27);
@@ -29,6 +29,8 @@ CSS variables
 
 	--green: #8cc152;
 	--lightgreen: #a0d468;
+
+	--calc-black: rgb(30, 35, 38);
 }
 
 
