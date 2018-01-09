@@ -19,13 +19,19 @@ export default class App extends Component {
       {
         index: 0,
         name: "player 1",
+        
         lifePoints: 8000,
+        calculate: "",
+
         isEditing: false,
       },
       {
         index: 1,
         name: "player 2",
+        
         lifePoints: 8000,
+        calculate: "",
+
         isEditing: false,
       },
     ],
@@ -49,27 +55,18 @@ export default class App extends Component {
     event.preventDefault(); //prevent default browser refresh
 
     const { duelist1, duelist2 } = this.state;
-
+    const duelistNames = [duelist1, duelist2];
+    
     this.setState({
-      //THIS IS SUPER BAD, MUTATING STATE, 
-      //having trouble completing this.
-      duelers: [
-        {
-          index: 0,
-          name: duelist1,
-          lifePoints: 8000,
-          isEditing: false,
-        },
-        {
-          index: 1,
-          name: duelist2,
-          lifePoints: 8000,
-          isEditing: false,
-        },
-      ],
+      duelers: this.state.duelers.map( (duelist, index) => {
+        return {
+          ...duelist,
+          name: duelistNames[index]
+        }
+      }),
 
       fireRedirect: true,
-    })
+    });
   }
 
   //-------------------------------------------------------------
@@ -125,10 +122,24 @@ export default class App extends Component {
       return null;
     }) 
   } 
-
-
-
+  //-------------------------------------------------------------
+  //handle calculation here on submit.
+  handleBtnClick = () => {
+    
+  }
   
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
