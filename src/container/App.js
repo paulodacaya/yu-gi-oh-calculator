@@ -18,31 +18,36 @@ export default class App extends Component {
     duelers: [
       {
         index: 0,
-        name: "player 1",
+        name: "duelist",
         
         lifePoints: 8000,
         calculate: "",
-
+        prevlifePoints: null,
+        
+        calcIsOpen: false,
         isEditing: false,
       },
       {
         index: 1,
-        name: "player 2",
+        name: "duelist",
         
         lifePoints: 8000,
         calculate: "",
+        prevlifePoints: null,
 
+        calcIsOpen: false,
         isEditing: false,
       },
     ],
 
+    
     fireRedirect: false,
   }
 
   
 
   //-------------------------------------------------------------
-  handlePlayerInput = event => {
+  handlePlayerInput = event  => {
     const name = event.target.name; //name of input
     const value = event.target.value; //value of input
 
@@ -55,7 +60,8 @@ export default class App extends Component {
     event.preventDefault(); //prevent default browser refresh
 
     const { duelist1, duelist2 } = this.state;
-    const duelistNames = [duelist1, duelist2];
+    let duelistNames = [duelist1, duelist2];
+    duelistNames = duelistNames.map( name => name === "" ? name = "duelist" : name )
     
     this.setState({
       duelers: this.state.duelers.map( (duelist, index) => {
@@ -81,15 +87,16 @@ export default class App extends Component {
           }
         }
 
-        return {
-          ...duelist,
-        }
+        return duelist
       })
     });
   }
 
   toggleEditing = index => {
     this.togglePlayerProperty('isEditing', index);
+  }
+  toggleCalcOpen = index => {
+    this.togglePlayerProperty('calcIsOpen', index);
   }
 
   //-------------------------------------------------------------
@@ -123,25 +130,121 @@ export default class App extends Component {
     }) 
   } 
   //-------------------------------------------------------------
-  //handle calculation here on submit.
-  handleBtnClick = () => {
-    
+  onUndoBtnClick = PlayerIndex => {
+    this.setState({
+      
+      duelers: this.state.duelers.map( (duelist, index) => {
+        const { prevlifePoints } = duelist;
+        
+        if(index === PlayerIndex) {
+          return {
+            ...duelist,
+            lifePoints: prevlifePoints,
+          }
+        }
+
+        return duelist; 
+      })
+    });
   }
+
+
+
+
+  //-------------------------------------------------------------
+  onCalcBtnClick = (btnValue, PlayerIndex) => {
+    
+    this.setState({
+      duelers: this.state.duelers.map( (duelist, index) => {
+        const { calculate } = duelist;
+        
+        if(index === PlayerIndex) {
+          return {
+            ...duelist,
+            calculate: calculate + btnValue,
+          }
+        
+        }
+        return duelist;
+      })
+    }) 
+  }
+
+  onClearDisplayBtn = PlayerIndex => {
+    
+    this.setState({
+      duelers: this.state.duelers.map( (duelist, index) => {
+        if(index === PlayerIndex) {
+          return {
+            ...duelist,
+            calculate: "",
+          }
+        
+        }
+        return duelist;
+      })
+    })
+  }
+
+  onCalcDelBtn = PlayerIndex => {
   
+    this.setState({
+      duelers: this.state.duelers.map( (duelist, index) => {
+        const { calculate } = duelist;
+
+        if(index === PlayerIndex) {
+          return {
+            ...duelist,
+            calculate: calculate.slice(0, -1),
+          }
+        
+        }
+        return duelist;
+      })
+    })
+  }
 
 
 
+  handleLifePointCalculation = (lifePoints, equation) => {
+    lifePoints = String(lifePoints);
+    let final;
 
+    if(equation.startsWith("-") || equation.startsWith("+") || equation.startsWith("*")) {
+      final = Math.ceil( eval(lifePoints.concat(equation)) );
+    } else {
+      final = lifePoints;
+    }
 
+    if(final < 0) {
+      final = 0;
+    }
 
+    return final;
+  }
 
+  CalcSubmitHandler = (event, PlayerIndex) => {
+    event.preventDefault(); //prevent refesh.
 
+    this.setState({
+      duelers: this.state.duelers.map( (duelist, index) => {
 
-
-
-
-
-
+        if(index === PlayerIndex) {
+          const { lifePoints, calculate } = duelist;
+          const productlP = this.handleLifePointCalculation(lifePoints, calculate);
+          
+          return {
+            ...duelist,
+            calcIsOpen: false,
+            calculate: "",
+            prevlifePoints: lifePoints,
+            lifePoints: productlP,
+          }
+        }
+        return duelist;
+      })
+    })
+  }
 
 
 
@@ -166,7 +269,13 @@ export default class App extends Component {
                   duelers={this.state.duelers}
                   toggleEditing={this.toggleEditing}
                   changePlayerName={this.changePlayerName}
-                  onKeyPress={this.onKeyPress} />
+                  onKeyPress={this.onKeyPress}
+                  toggleCalcOpen={this.toggleCalcOpen}
+                  onCalcBtnClick={this.onCalcBtnClick}
+                  onClearDisplayBtn={this.onClearDisplayBtn}
+                  onCalcDelBtn={this.onCalcDelBtn}
+                  CalcSubmitHandler={this.CalcSubmitHandler}
+                  onUndoBtnClick={this.onUndoBtnClick} />
               )} />
               
               <Route component={NotFound} />

@@ -284,11 +284,11 @@ Dueling Styles - Duelist
   width: var(--lp-width);
 }
 
-.lp-btns {
+.lp-btn {
   margin-top: 1em;
   display: flex;
 }
-.lp-btns button {
+.lp-btn {
   text-transform: uppercase;
   color: var(--white);
   padding: 1em;
@@ -298,30 +298,68 @@ Dueling Styles - Duelist
 
   transition: 150ms linear;
 }
-.lp-btns button:nth-child(1) {
-  background-color: var(--lightred);
-  border: solid 1px var(--red);
-  box-shadow: 0 1px 0 var(--red),
-              1px 2px 3px var(--red);
-}
-.lp-btns button:nth-child(2) {
+.lp-btn {
   background-color: var(--lightorange);
   border: solid 1px var(--orange);
   box-shadow: 0 1px 0 var(--orange),
               1px 2px 3px var(--orange);
 }
-.lp-btns button:hover,
-.lp-btns button:focus,
-.lp-btns button:active {
-  color: var(--lightred);
-  text-shadow: -1px -1px 0 var(--red);
+
+/* ========================== 
+Dueling Styles - Calculator 
+============================= */
+#calculator {
+  width: 300px;
+  height: 400px;
 }
-.lp-btns button:last-child:hover,
-.lp-btns button:last-child:focus,
-.lp-btns button:last-child:active {
-  color: var(--lightorange);
-  text-shadow: -1px -1px 0 var(--orange);
+#calculator input[type=text] {
+  border: none;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 1.2em;
+  
 }
+#calculator .buttons {
+  height: calc(100% - 100px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6. 1fr);
+}
+.buttons button {
+  color: var(--grey);
+  width: calc(300px / 4); /* container width / 4 */
+  border: 1px solid rgba( 238, 238, 238, .2);
+  cursor: pointer;
+}
+.sym {
+  background-color: var(--lightred);
+}
+.num {
+  background-color: var(--calc-black);
+}
+.sub {
+  background-color: var(--lightgreen);
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  
+  width: 25px;
+  height: 25px;
+  background-color: rgba( 238, 238, 238, .5);
+  border: none;
+  border-radius: 0 0 0 0.3em;
+
+  color: var(--calc-black);
+  cursor: pointer;
+  
+}
+
+
 
 /* ========================== 
 Yu-Gi-Oh Dueling Rules Styles
@@ -372,13 +410,20 @@ How to use App Styles
   color: var(--red);
 }
 .appguide img {
-  width: 350px;
-  height: 300px;
   display: block;
   margin: 0 auto 2em;
   border: 2px solid var(--black);
   border-radius: 0.6em;
 }
+
+.gif-1 {
+  width: 356px;
+  height: 260px;
+} 
+.gif-2 {
+  width: 346px;
+  height: 510px;
+} 
 
 
 

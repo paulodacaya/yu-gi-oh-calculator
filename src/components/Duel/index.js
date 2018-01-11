@@ -22,7 +22,14 @@ const Duel = props => (
         duelers={props.duelers}
         toggleEditing={props.toggleEditing}
         changePlayerName={props.changePlayerName}
-        onKeyPress={props.onKeyPress} />
+        onKeyPress={props.onKeyPress}
+        calcIsOpen={props.calcIsOpen}
+        toggleCalcOpen={props.toggleCalcOpen}
+        onCalcBtnClick={props.onCalcBtnClick}
+        onClearDisplayBtn={props.onClearDisplayBtn}
+        onCalcDelBtn={props.onCalcDelBtn}
+        CalcSubmitHandler={props.CalcSubmitHandler}
+        onUndoBtnClick={props.onUndoBtnClick} />
     )} />
     
     <Route path="/duel/rules" render={ () => (
@@ -40,6 +47,12 @@ Duel.propTypes = {
   toggleEditing: PropTypes.func.isRequired,
   changePlayerName: PropTypes.func.isRequired,
   onKeyPress: PropTypes.func.isRequired,
+  toggleCalcOpen: PropTypes.func.isRequired,
+  onCalcBtnClick: PropTypes.func.isRequired,
+  onClearDisplayBtn: PropTypes.func.isRequired,
+  onCalcDelBtn: PropTypes.func.isRequired,
+  CalcSubmitHandler: PropTypes.func.isRequired,
+  onUndoBtnClick: PropTypes.func.isRequired,
 };
 
 export default Duel;

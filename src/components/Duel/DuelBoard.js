@@ -13,7 +13,9 @@ const DuelBoard = props => (
             key={index}
             name={duelist.name}
             lifePoints={duelist.lifePoints}
+            calculate={duelist.calculate}
             isEditing={duelist.isEditing}
+            calcIsOpen={duelist.calcIsOpen}
             handleToggleEditing={() => {
               props.toggleEditing(duelist.index);
             }}
@@ -22,6 +24,24 @@ const DuelBoard = props => (
             }}
             onKeyPress={ key => {
              props.onKeyPress(key, index);
+            }}
+            handleToggleCalcOpen={ () => {
+              props.toggleCalcOpen(duelist.index);
+            }}
+            onCalcBtnClick={ btn => {
+              props.onCalcBtnClick(btn, index);
+            }}
+            onClearDisplayBtn={ () => {
+              props.onClearDisplayBtn(index);
+            }}
+            onCalcDelBtn={ () => {
+              props.onCalcDelBtn(index);
+            }}
+            CalcSubmitHandler={ e => {
+              props.CalcSubmitHandler(e, index);
+            }}
+            handleUndoBtnClick={ () => {
+              props.onUndoBtnClick(index);
             }} />
         )
       )
@@ -40,6 +60,12 @@ DuelBoard.propTypes = {
   toggleEditing: PropTypes.func.isRequired,
   changePlayerName: PropTypes.func.isRequired,
   onKeyPress: PropTypes.func.isRequired,
+  toggleCalcOpen: PropTypes.func.isRequired,
+  onCalcBtnClick: PropTypes.func.isRequired,
+  onClearDisplayBtn: PropTypes.func.isRequired,
+  onCalcDelBtn: PropTypes.func.isRequired,
+  CalcSubmitHandler: PropTypes.func.isRequired,
+  onUndoBtnClick: PropTypes.func.isRequired,
 };
 
 export default DuelBoard; 
