@@ -384,9 +384,6 @@ How to use App Styles
   max-width: 400px;
   margin: 0 auto;
 }
-.appguide div {
-  margin-bottom: 2em;
-}
 .appguide h1,
 .appguide h2 {
   text-align: center;
@@ -425,7 +422,37 @@ How to use App Styles
   height: 510px;
 } 
 
+/* ========================== 
+Not Found Page Styles
+============================= */
 
+.NotFound {
+  height: 80%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.NotFound img {
+  margin-top: 20px;
+  height: 50%;
+}
+.NotFound h1 {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: 700;
+  margin: 1em 0;
+} 
+.NotFound h2 {
+  text-transform: capitalize;
+  color: var(--red);
+  margin: 1em 0;
+}
+.NotFound a {
+  font-weight: 700;
+  color: var(--green);
+}
 
 
 
@@ -465,7 +492,7 @@ Media Queries
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   /* ========================== 
   Dueling Styles - Header
   ============================= */
@@ -489,8 +516,11 @@ Media Queries
     display: flex;
     max-width: 1000px;
   }
-  .appguide div {
+  .appguide {
     flex: 1;
+  }
+  .appguide > div:first-child {
+    margin-right: 2em;
   }
 }
 
