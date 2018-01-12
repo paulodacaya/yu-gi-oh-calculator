@@ -14,6 +14,8 @@ export default class App extends Component {
   state = {
     duelist1: "",
     duelist2: "",
+    fireRedirect: false,
+    headerExists: false,
 
     duelers: [
       {
@@ -39,13 +41,14 @@ export default class App extends Component {
         isEditing: false,
       },
     ],
-
-    
-    fireRedirect: false,
   }
-
-  
-
+  //-------------------------------------------------------------
+  toggleHeaderExistance = () => {
+    const { headerExists } = this.state;
+    this.setState({
+      headerExists: !headerExists,
+    })
+  }
   //-------------------------------------------------------------
   handlePlayerInput = event  => {
     const name = event.target.name; //name of input
@@ -148,9 +151,6 @@ export default class App extends Component {
     });
   }
 
-
-
-
   //-------------------------------------------------------------
   onCalcBtnClick = (btnValue, PlayerIndex) => {
     
@@ -208,19 +208,20 @@ export default class App extends Component {
 
   handleLifePointCalculation = (lifePoints, equation) => {
     lifePoints = String(lifePoints);
-    let final;
+    let product;
 
     if(equation.startsWith("-") || equation.startsWith("+") || equation.startsWith("*")) {
-      final = Math.ceil( eval(lifePoints.concat(equation)) );
+      product = Math.ceil( eval(lifePoints.concat(equation)) );
     } else {
-      final = lifePoints;
+      product = lifePoints;
     }
 
-    if(final < 0) {
-      final = 0;
+    //prevent negative value.
+    if(product < 0) {
+      product = 0;
     }
 
-    return final;
+    return product;
   }
 
   CalcSubmitHandler = (event, PlayerIndex) => {
@@ -255,16 +256,16 @@ export default class App extends Component {
         <Fragment> 
             <Switch>
               
-              <Route exact path="/" render={ () => (
+              <Route exact path="/" render={ () => 
                 <Card 
                   duelist1={this.state.duelist1}
                   duelist2={this.state.duelist2}
                   handlePlayerInput={this.handlePlayerInput}
                   playersSubmitHandler={this.playersSubmitHandler}
                   fireRedirect = {this.state.fireRedirect} />
-              )} />
+              } />
 
-              <Route path="/duel" render={ () => (
+              <Route path="/duel" render={ () => 
                 <Duel 
                   duelers={this.state.duelers}
                   toggleEditing={this.toggleEditing}
@@ -275,11 +276,14 @@ export default class App extends Component {
                   onClearDisplayBtn={this.onClearDisplayBtn}
                   onCalcDelBtn={this.onCalcDelBtn}
                   CalcSubmitHandler={this.CalcSubmitHandler}
-                  onUndoBtnClick={this.onUndoBtnClick} />
-              )} />
+                  onUndoBtnClick={this.onUndoBtnClick}
+                  headerExists={this.state.headerExists}
+                  toggleHeaderExistance={this.toggleHeaderExistance} />
+              } />
               
-              <Route component={NotFound} />
-
+              <Route render={ () => 
+                <NotFound headerExists={this.state.headerExists} /> 
+              } />
             </Switch>
         </Fragment>
       </BrowserRouter>

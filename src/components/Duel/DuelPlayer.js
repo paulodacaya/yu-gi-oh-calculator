@@ -10,18 +10,17 @@ const DuelPlayer = props => (
     <DuelPlayerName
       isEditing={props.isEditing}
       handleToggleEditing={props.handleToggleEditing}
-      handleNameEdits={ e => 
-        props.changePlayerName(e.target.value)
-      }
-      handleKeyPress={ e => 
-        props.onKeyPress(e.key)
-      } >
+      handleNameEdits={ e => props.changePlayerName(e.target.value) }
+      handleKeyPress={ e => props.onKeyPress(e.key) } >
       
       {props.name}
     </DuelPlayerName>
     
     <div className="scores">
-      <img src={ require('../../assets/undo.svg') } alt="undo icon" onClick={props.handleUndoBtnClick}/>
+      <img 
+        src={ require('../../assets/undo.svg') } 
+        alt="undo icon" 
+        onClick={props.handleUndoBtnClick}/>
       <p>lp</p>
       <h4>{props.lifePoints}</h4>
     </div>
@@ -30,14 +29,10 @@ const DuelPlayer = props => (
       calculate={props.calculate}
       calcIsOpen={props.calcIsOpen}
       handleToggleCalcOpen={props.handleToggleCalcOpen}
-      handleCalcBtnClick={ e => {
-        props.onCalcBtnClick(e.target.value);
-      }}
+      handleCalcBtnClick={ e => props.onCalcBtnClick(e.target.value) }
       handleClearDisplayBtn={props.onClearDisplayBtn}
       handleCalcDelBtn={props.onCalcDelBtn}
-      CalcSubmitHandler={ e => {
-        props.CalcSubmitHandler(e);
-      }} />
+      CalcSubmitHandler={ e => props.CalcSubmitHandler(e) } />
   </div>
 );
 

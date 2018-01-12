@@ -8,7 +8,7 @@ const DuelBoard = props => (
 
     {
       props.duelers
-        .map( (duelist, index) =>  (
+        .map( (duelist, index) => (
           <DuelPlayer 
             key={index}
             name={duelist.name}
@@ -16,33 +16,15 @@ const DuelBoard = props => (
             calculate={duelist.calculate}
             isEditing={duelist.isEditing}
             calcIsOpen={duelist.calcIsOpen}
-            handleToggleEditing={() => {
-              props.toggleEditing(duelist.index);
-            }}
-            changePlayerName={ text => {
-              props.changePlayerName(text, index);
-            }}
-            onKeyPress={ key => {
-             props.onKeyPress(key, index);
-            }}
-            handleToggleCalcOpen={ () => {
-              props.toggleCalcOpen(duelist.index);
-            }}
-            onCalcBtnClick={ btn => {
-              props.onCalcBtnClick(btn, index);
-            }}
-            onClearDisplayBtn={ () => {
-              props.onClearDisplayBtn(index);
-            }}
-            onCalcDelBtn={ () => {
-              props.onCalcDelBtn(index);
-            }}
-            CalcSubmitHandler={ e => {
-              props.CalcSubmitHandler(e, index);
-            }}
-            handleUndoBtnClick={ () => {
-              props.onUndoBtnClick(index);
-            }} />
+            handleToggleEditing={() => props.toggleEditing(duelist.index) }
+            changePlayerName={ text => props.changePlayerName(text, index) }
+            onKeyPress={ key => props.onKeyPress(key, index) }
+            handleToggleCalcOpen={ () => props.toggleCalcOpen(duelist.index) }
+            onCalcBtnClick={ btn => props.onCalcBtnClick(btn, index) }
+            onClearDisplayBtn={ () => props.onClearDisplayBtn(index) }
+            onCalcDelBtn={ () => props.onCalcDelBtn(index) }
+            CalcSubmitHandler={ e => props.CalcSubmitHandler(e, index) }
+            handleUndoBtnClick={ () => props.onUndoBtnClick(index) } />
         )
       )
     }

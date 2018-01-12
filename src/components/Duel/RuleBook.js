@@ -24,25 +24,23 @@ export default class RuleBook extends Component {
   render() {
     const { pageNumbers } = this.state;
     
-    const renderPages = pageNumbers.map( numOfPage => (
+    const renderPages = pageNumbers.map( pageNumber => 
       <Page
         className="rulebook-page"
         scale={1.3}
-        pageNumber={numOfPage} />
-    ));
+        pageNumber={pageNumber} />
+    );
 
     return (
       <div>
         <Document 
           className="rulebook-container"
           file={ require('../../assets/yugioh-official-rulebook.pdf') } 
-          //capture the number of pages after loading
           onLoadSuccess={this.onDocumentLoad}
           loading="loading... please wait."
-          error="an error has occurs, please refresh" >
+          error="an error has occurs, please refresh." >
 
           {renderPages}
-
         </Document>
       </div>
     );

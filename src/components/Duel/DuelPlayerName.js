@@ -22,9 +22,7 @@ const DuelPlayerName = props => {
   }
   
   return (
-    <span
-      onDoubleClick={props.handleToggleEditing} >
-      
+    <span onDoubleClick={props.handleToggleEditing} >
       {props.children}
     </span>
   );
