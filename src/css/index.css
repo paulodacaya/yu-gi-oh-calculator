@@ -72,10 +72,7 @@ Intro Card
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-     -moz-box-shadow: 0 10px 6px -6px #777;
-          box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 .card-header {
@@ -456,7 +453,35 @@ Not Found Page Styles
 
 
 
+/* ===================================================== 
+ReactCSSTransitionGroup Styles
+===================================================== */
+.header-appear {
+  transform: translateY(-100%);
+}
 
+.header-appear.header-appear-active {
+  transform: translateY(0);
+  transition: transform 350ms ease-in;
+}
+
+.duelboard-appear {
+  opacity: 0.5;
+}
+
+.duelboard-appear.duelboard-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.ReactModal__Overlay {
+  transform: translateY(100%);
+}
+
+.ReactModal__Overlay--after-open {
+  transform: translateY(0);
+  transition: transform 500ms cubic-bezier(.38,.01,.07,1.33);
+}
 
 
 
@@ -475,9 +500,6 @@ Media Queries
 
 
 @media (min-width: 500px) {
-  /* ========================== 
-  Dueling Styles - Header
-  ============================= */
   header ul {
     flex-direction: row;
     align-items: center;
@@ -493,25 +515,18 @@ Media Queries
 }
 
 @media (min-width: 800px) {
-  /* ========================== 
-  Dueling Styles - Header
-  ============================= */
   :root {
     --image-height: 60px;
     --header-height: 8em;
   }
-  
+
   header ul  {
     font-size: 1.5em;
   }
 
-  /* ========================== 
-  Dueling Styles - Duelist
-  ============================= */
   .duel-board {
     flex-direction: row;
   }
-
   .appguide {
     display: flex;
     max-width: 1000px;
@@ -526,9 +541,6 @@ Media Queries
 
 
 @media (min-width: 1100px) {
-  /* ========================== 
-  Dueling Styles - Header
-  ============================= */
   :root {
     --image-height: 70px;
     --score-boardmw: 1000px;
@@ -538,19 +550,9 @@ Media Queries
     --nameplate-h: 70px;
     --playertag-lh: 70px;
   }
-
-  
-
-  /* ========================== 
-  Dueling Styles - Duelist
-  ============================= */
-
 }
 
 @media (min-width: 1400px) {
-  /* ========================== 
-  Dueling Styles - Header
-  ============================= */
   :root {
     --score-boardmw: 1200px;
     --player-fontsize: 3.0em;

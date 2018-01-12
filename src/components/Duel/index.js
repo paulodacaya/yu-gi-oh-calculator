@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect, Switch, } from 'react-router-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 //import components
 import Header from '../Header';
@@ -12,24 +13,39 @@ import NotFound from '../NotFound';
 const Duel = props => (
   
   <div className="duel-container">
-    <Header
-      toggleHeaderExistance={props.toggleHeaderExistance} />
+    <ReactCSSTransitionGroup
+      transitionName="header"
+      transitionEnterTimeout={false}
+      transitionLeaveTimeout={false}
+      transitionAppear={true}
+      transitionAppearTimeout={500} >
+      <Header
+        toggleHeaderExistance={props.toggleHeaderExistance} />
+    </ReactCSSTransitionGroup>
+
     <Switch>
       <Route exact path="/duel" render={ () => <Redirect to="/duel/duelboard" /> } />
 
       <Route path="/duel/duelboard" render={ () => (
-        <DuelBoard 
-          duelers={props.duelers}
-          toggleEditing={props.toggleEditing}
-          changePlayerName={props.changePlayerName}
-          onKeyPress={props.onKeyPress}
-          calcIsOpen={props.calcIsOpen}
-          toggleCalcOpen={props.toggleCalcOpen}
-          onCalcBtnClick={props.onCalcBtnClick}
-          onClearDisplayBtn={props.onClearDisplayBtn}
-          onCalcDelBtn={props.onCalcDelBtn}
-          CalcSubmitHandler={props.CalcSubmitHandler}
-          onUndoBtnClick={props.onUndoBtnClick} />
+        <ReactCSSTransitionGroup
+          transitionName="duelboard"
+          transitionEnterTimeout={false}
+          transitionLeaveTimeout={false}
+          transitionAppear={true}
+          transitionAppearTimeout={500} >
+          <DuelBoard 
+            duelers={props.duelers}
+            toggleEditing={props.toggleEditing}
+            changePlayerName={props.changePlayerName}
+            onKeyPress={props.onKeyPress}
+            calcIsOpen={props.calcIsOpen}
+            toggleCalcOpen={props.toggleCalcOpen}
+            onCalcBtnClick={props.onCalcBtnClick}
+            onClearDisplayBtn={props.onClearDisplayBtn}
+            onCalcDelBtn={props.onCalcDelBtn}
+            CalcSubmitHandler={props.CalcSubmitHandler}
+            onUndoBtnClick={props.onUndoBtnClick} />
+          </ReactCSSTransitionGroup>
       )} />
       
       <Route path="/duel/rules" component={RuleBook} />
