@@ -1,7 +1,7 @@
 ![yugioh_logo](https://user-images.githubusercontent.com/29850088/34853219-b1085ea8-f786-11e7-87e5-b92f86849ff2.png)
 
 # yu-gi-oh-calculator
-An application that makes it easier for yu-gi-oh trading card game dueling. This was created to give Yu-Gi-Oh duelist and enjoyable yet practical experience while dueiling. Application was built on React.
+An application that makes it easier for yu-gi-oh trading card game dueling. This was created to give Yu-Gi-Oh duelist and enjoyable yet practical experience while dueiling.
 
 ## Getting Started
 Please visit the following site where the application is hosted.
