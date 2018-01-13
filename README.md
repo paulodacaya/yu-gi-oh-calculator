@@ -5,8 +5,7 @@ An application that makes it easier for yu-gi-oh trading card game dueling. This
 
 ## Getting Started
 Please visit the following link where the application is hosted:
-[Yu-Gi-Oh Calculator](https://paulodacaya.github.io/yu-gi-oh-calculator/#/).
-You will be directed to a 404 page, however just click on the 'click here' link and you will redirected to the application.
+[Yu-Gi-Oh Calculator](https://paulodacaya.github.io/yu-gi-oh-calculator/#/). Enjoy!
 
 ## How To Use Application 
 You will initially be greeted with and display card that advices to input two duelist names. Hit Enter or click 'Go' to move to dueling UI.
