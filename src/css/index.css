@@ -36,6 +36,10 @@ a {
   color: inherit;
 }
 
+strong {
+  font-weight: 700;
+}
+
 img {
   height: 100px;
 }
@@ -397,6 +401,9 @@ How to use App Styles
 .appguide ul > li,
 .appguide img {
   margin-bottom: 1em;
+}
+.appguide ul > li {
+  line-height: 1.3em;
 }
 .appguide span {
   text-transform: capitalize;
