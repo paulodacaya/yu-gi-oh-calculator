@@ -2,7 +2,7 @@
   "name": "yu-gi-oh-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://paulodacaya.github.io/yu-gi-oh-calculator",
+  "homepage": "http://paulodacaya.xyz/yu-gi-oh-calculator",
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
