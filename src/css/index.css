@@ -306,6 +306,23 @@ Dueling Styles - Duelist
               1px 2px 3px var(--orange);
 }
 
+#winCounter {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  background: url('../assets/score-plate.svg') no-repeat;
+  background: cover;
+  width: 251px;
+  height: 100px;
+  padding: 0 15px 0 25px;
+}
+
 /* ========================== 
 Dueling Styles - Calculator 
 ============================= */

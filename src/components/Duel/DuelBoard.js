@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DuelPlayer from './DuelPlayer';
+import DuelWinCounter from './DuelWinCounter';
 
 const DuelBoard = props => (
   <main className="duel-board">
+
+    <DuelWinCounter />
 
     {
       props.duelers

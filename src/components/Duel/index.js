@@ -15,8 +15,8 @@ const Duel = props => (
   <div className="duel-container">
     <ReactCSSTransitionGroup
       transitionName="header"
-      transitionEnterTimeout={false}
-      transitionLeaveTimeout={false}
+      transitionEnter={false}
+      transitionLeave={false}
       transitionAppear={true}
       transitionAppearTimeout={500} >
       <Header
@@ -29,8 +29,8 @@ const Duel = props => (
       <Route path="/duel/duelboard" render={ () => (
         <ReactCSSTransitionGroup
           transitionName="duelboard"
-          transitionEnterTimeout={false}
-          transitionLeaveTimeout={false}
+          transitionEnter={false}
+          transitionLeave={false}
           transitionAppear={true}
           transitionAppearTimeout={500} >
           <DuelBoard 
