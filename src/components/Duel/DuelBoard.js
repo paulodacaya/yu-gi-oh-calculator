@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 
 import DuelPlayer from './DuelPlayer';
 import DuelWinCounter from './DuelWinCounter';
+import ResetCard from './ResetCard';
 
 const DuelBoard = props => (
   <main className="duel-board">
 
-    <DuelWinCounter />
+    <DuelWinCounter 
+      //when player1 loses, it becomes players2 win count, vice versa.
+      player1WinCount={props.player2LostCount} 
+      player2WinCount={props.player1LostCount} />
 
     {
       props.duelers
@@ -37,6 +41,8 @@ const DuelBoard = props => (
       src={ require('../../assets/versus-img.png') } 
       alt="versus logo" />
 
+    <ResetCard 
+      displayResetCard={props.displayResetCard} />
   </main>
 );
 
@@ -51,6 +57,9 @@ DuelBoard.propTypes = {
   onCalcDelBtn: PropTypes.func.isRequired,
   CalcSubmitHandler: PropTypes.func.isRequired,
   onUndoBtnClick: PropTypes.func.isRequired,
+  player1LostCount: PropTypes.number.isRequired,
+  player2LostCount: PropTypes.number.isRequired,
+  displayResetCard: PropTypes.bool.isRequired,
 };
 
 export default DuelBoard; 
