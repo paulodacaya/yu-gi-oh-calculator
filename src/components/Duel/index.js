@@ -47,6 +47,7 @@ const Duel = props => (
             onUndoBtnClick={props.onUndoBtnClick}
             player1LostCount={props.player1LostCount}
             player2LostCount={props.player2LostCount}
+            winner={props.winner}
             displayResetCard={props.displayResetCard}
             onNewGameBtnClick={props.onNewGameBtnClick}
             onNextRoundBtnClick={props.onNextRoundBtnClick} />
@@ -77,6 +78,7 @@ Duel.propTypes = {
   toggleHeaderExistsProperty: PropTypes.func.isRequired,
   player1LostCount: PropTypes.number.isRequired,
   player2LostCount: PropTypes.number.isRequired,
+  winner: PropTypes.string.isRequired,
   displayResetCard: PropTypes.bool.isRequired,
   onNewGameBtnClick: PropTypes.func.isRequired,
   onNextRoundBtnClick: PropTypes.func.isRequired,

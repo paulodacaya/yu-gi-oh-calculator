@@ -114,6 +114,10 @@ export default class App extends Component {
 
   //-------------------------------------------------------------
   changePlayerName = (name, PlayersIndex) => {
+    if(name.length > 12) {
+      alert('Name must be below 12 characters to fit correctly in name plate. Thank you.');
+      return null;
+    }
     
     this.setState({
       duelers: this.state.duelers.map( (duelist, index) => {
@@ -226,7 +230,7 @@ export default class App extends Component {
 
           //when duelist loses
           if(productlP === 0) {
-            // const winner = this.getWinner();
+            this.setWinner(index);
             this.toggleDisplayResetCardProperty();
             return {
               ...duelist,
@@ -270,7 +274,7 @@ export default class App extends Component {
       product = lifePoints;
     }
     
-    //if project is negative
+    //if product is negative
     if(product <= 0) {
       product = 0;
     }
@@ -278,7 +282,14 @@ export default class App extends Component {
     return product;
   }
 
-  // getWinner = () => {}
+  //not clean way of doing things,
+  //need to find better solution.
+  setWinner = index => {
+    const winner = index === 0 ? this.state.duelers[1].name : this.state.duelers[0].name;
+    this.setState({
+      winner,
+    })
+  }
 
   //-------------------------------------------------------------
   onNewGameBtnClick = () => {
@@ -324,6 +335,7 @@ export default class App extends Component {
                   toggleHeaderExistsProperty={this.toggleHeaderExistsProperty}
                   player1LostCount={this.state.duelers[0].lostCount}
                   player2LostCount={this.state.duelers[1].lostCount}
+                  winner={this.state.winner}
                   displayResetCard={this.state.displayResetCard}
                   onNewGameBtnClick={this.onNewGameBtnClick}
                   onNextRoundBtnClick={this.onNextRoundBtnClick} />

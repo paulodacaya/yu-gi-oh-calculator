@@ -413,7 +413,7 @@ Dueling Styles - Reset Card
 
 #reset-card h1 {
   font-size: var(--winner-fontsize);
-  margin: 1.3em 0;
+  margin: 1.2em 0;
 }
 
 #reset-card .buttons {
@@ -637,7 +637,7 @@ Media Queries
   :root {
     --image-height: 60px;
     --header-height: 8em;
-    --winner-fontsize: 6em;
+    --winner-fontsize: 6.5em;
   }
 
   header ul  {

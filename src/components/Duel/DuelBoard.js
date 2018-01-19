@@ -43,6 +43,7 @@ const DuelBoard = props => (
 
     <ResetCard 
       displayResetCard={props.displayResetCard}
+      winner={props.winner}
       handleNewGameBtnClick={props.onNewGameBtnClick}
       handleNextRoundBtnClick={props.onNextRoundBtnClick} />
   </main>
@@ -61,6 +62,7 @@ DuelBoard.propTypes = {
   onUndoBtnClick: PropTypes.func.isRequired,
   player1LostCount: PropTypes.number.isRequired,
   player2LostCount: PropTypes.number.isRequired,
+  winner: PropTypes.string.isRequired,
   displayResetCard: PropTypes.bool.isRequired,
   onNewGameBtnClick: PropTypes.func.isRequired,
   onNextRoundBtnClick: PropTypes.func.isRequired,
