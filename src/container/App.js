@@ -14,28 +14,32 @@ export default class App extends Component {
   state = {
     duelist1: "",
     duelist2: "",
+    winner: null,
     fireRedirect: false,
     headerExists: false,
+    displayResetCard: false,
 
     duelers: [
       {
         index: 0,
-        name: "duelist",
         
+        name: "duelist",
         lifePoints: 8000,
         calculate: "",
         prevlifePoints: null,
+        lostCount: 0,
         
         calcIsOpen: false,
         isEditing: false,
       },
       {
         index: 1,
-        name: "duelist",
         
+        name: "duelist",
         lifePoints: 8000,
         calculate: "",
         prevlifePoints: null,
+        lostCount: 0,
 
         calcIsOpen: false,
         isEditing: false,
@@ -43,12 +47,15 @@ export default class App extends Component {
     ],
   }
   //-------------------------------------------------------------
-  toggleHeaderExistance = () => {
-    const { headerExists } = this.state;
+  toggleProperty = property => {
+    const propertyName = this.state.property;
     this.setState({
-      headerExists: !headerExists,
+      [property]: !propertyName,
     })
   }
+
+  toggleHeaderExistsProperty = () => this.toggleProperty('headerExists') //used for 404 page.
+  toggleDisplayResetCardProperty = () => this.toggleProperty('displayResetCard')
   //-------------------------------------------------------------
   handlePlayerInput = event  => {
     const name = event.target.name; //name of input
@@ -204,7 +211,38 @@ export default class App extends Component {
     })
   }
 
+  //-------------------------------------------------------------
+  CalcSubmitHandler = (event, PlayerIndex) => {
+    event.preventDefault(); //prevent refesh.
 
+    this.setState({
+      duelers: this.state.duelers.map( (duelist, index) => {
+
+        if(index === PlayerIndex) {
+          const { lifePoints, calculate, lostCount } = duelist;
+          const productlP = this.handleLifePointCalculation(lifePoints, calculate);
+          let totalLostCount = 0;
+
+          //When duelist loses
+          if(productlP === 0) {
+            this.toggleDisplayResetCardProperty();
+            totalLostCount = lostCount + 1;
+          }
+          
+          return {
+            ...duelist,
+            calcIsOpen: false,
+            calculate: "",
+            prevlifePoints: lifePoints,
+            lifePoints: productlP,
+            lostCount: totalLostCount, 
+          }
+        }
+        
+        return duelist;
+      })
+    })
+  }
 
   handleLifePointCalculation = (lifePoints, equation) => {
     lifePoints = String(lifePoints);
@@ -216,36 +254,13 @@ export default class App extends Component {
       product = lifePoints;
     }
 
-    //prevent negative value.
-    if(product < 0) {
+    if(product <= 0) {
       product = 0;
     }
 
     return product;
   }
 
-  CalcSubmitHandler = (event, PlayerIndex) => {
-    event.preventDefault(); //prevent refesh.
-
-    this.setState({
-      duelers: this.state.duelers.map( (duelist, index) => {
-
-        if(index === PlayerIndex) {
-          const { lifePoints, calculate } = duelist;
-          const productlP = this.handleLifePointCalculation(lifePoints, calculate);
-          
-          return {
-            ...duelist,
-            calcIsOpen: false,
-            calculate: "",
-            prevlifePoints: lifePoints,
-            lifePoints: productlP,
-          }
-        }
-        return duelist;
-      })
-    })
-  }
 
 
 
@@ -278,7 +293,10 @@ export default class App extends Component {
                   CalcSubmitHandler={this.CalcSubmitHandler}
                   onUndoBtnClick={this.onUndoBtnClick}
                   headerExists={this.state.headerExists}
-                  toggleHeaderExistance={this.toggleHeaderExistance} />
+                  toggleHeaderExistsProperty={this.toggleHeaderExistsProperty}
+                  player1LostCount={this.state.duelers[0].lostCount}
+                  player2LostCount={this.state.duelers[1].lostCount}
+                  displayResetCard={this.state.displayResetCard} />
               } />
               
               <Route render={ () => 

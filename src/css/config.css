@@ -12,6 +12,7 @@ CSS variables
 	--lp-width: 230px;
 	--nameplate-h: 56px;
 	--playertag-lh: 55px;
+	--winner-fontsize: 4em;
 	
 	/* colors */
 	--white: #fff;
@@ -29,6 +30,9 @@ CSS variables
 
 	--green: #8cc152;
 	--lightgreen: #a0d468;
+
+	--blue: #3bafda;
+	--mint: #37bc9b;
 
 	--calc-black: rgb(30, 35, 38);
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 
 //custom Modal Styles: check react-modal DOCs for more info.
-const customModalStyles = {
+const CalculatorModalStyles = {
   overlay: {
     backgroundColor: "transparent",
   },
@@ -28,7 +28,7 @@ const DuelCalculator = props => (
       ariaHideApp={false}
       isOpen={props.calcIsOpen}
       onRequestClose={props.handleToggleCalcOpen}
-      style={customModalStyles} >
+      style={CalculatorModalStyles} >
 
       <form 
         id="calculator" 

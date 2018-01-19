@@ -312,15 +312,19 @@ Dueling Styles - Duelist
   top: 20%;
   transform: translateX(-50%);
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  
+  display: none;
+  text-align: center;
+  line-height: 1.5;
+ 
+  width: 263px;
+  height: 100px;
   background: url('../assets/score-plate.svg') no-repeat;
   background: cover;
-  width: 251px;
-  height: 100px;
-  padding: 0 15px 0 25px;
+  font-size: 0.8em;
+}
+
+#winCounter span:first-child {
+  margin-right: 1em;
 }
 
 /* ========================== 
@@ -377,6 +381,86 @@ Dueling Styles - Calculator
   
 }
 
+/* ========================== 
+Dueling Styles - Reset Card 
+============================= */
+#reset-card {
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#reset-card > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+#reset-card h2 {
+  font-size: 2em;
+  color: var(--red);
+  margin-bottom: 0.2em;
+}
+
+#reset-card h3 {
+  font-size: 1em;
+}
+
+#reset-card h1 {
+  font-size: var(--winner-fontsize);
+  margin: 1.3em 0;
+}
+
+#reset-card .buttons {
+  font-size: 0.7em;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#reset-card button {
+  padding: 1em 0;
+  width: 80%;
+  border-radius: 0.6em;
+  background-color: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.2em;
+}
+
+#reset-card button:first-child {
+  color: var(--white);
+  background-color: var(--mint);
+  border: 2px solid transparent;
+  margin-bottom: 2em;
+}
+#reset-card button:first-child:hover {
+  border: 2px solid var(--mint);
+  background-color: transparent;
+  color: var(--mint);
+}
+
+#reset-card button:last-child {
+  color: var(--white);
+  background-color: var(--blue);
+  border: 2px solid transparent;
+}
+#reset-card button:last-child:hover {
+  border: 2px solid var(--blue);
+  background-color: transparent;
+  color: var(--blue);
+}
 
 
 /* ========================== 
@@ -524,6 +608,10 @@ Media Queries
 
 
 @media (min-width: 500px) {
+  :root {
+    --winner-fontsize: 5em;
+  }
+
   header ul {
     flex-direction: row;
     align-items: center;
@@ -536,12 +624,20 @@ Media Queries
   .vs-image {
     display: block;
   }
+
+  #reset-card .buttons {
+    flex-direction: row;
+  }
+  #reset-card button:first-child {
+    margin: 0 3em 0 0;
+  }
 }
 
 @media (min-width: 800px) {
   :root {
     --image-height: 60px;
     --header-height: 8em;
+    --winner-fontsize: 6em;
   }
 
   header ul  {
@@ -561,6 +657,12 @@ Media Queries
   .appguide > div:first-child {
     margin-right: 2em;
   }
+
+  #winCounter {
+    display: block;
+  }
+
+  
 }
 
 

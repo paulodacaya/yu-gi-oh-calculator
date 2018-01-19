@@ -20,7 +20,7 @@ const Duel = props => (
       transitionAppear={true}
       transitionAppearTimeout={500} >
       <Header
-        toggleHeaderExistance={props.toggleHeaderExistance} />
+        toggleHeaderExistsProperty={props.toggleHeaderExistsProperty} />
     </ReactCSSTransitionGroup>
 
     <Switch>
@@ -44,8 +44,11 @@ const Duel = props => (
             onClearDisplayBtn={props.onClearDisplayBtn}
             onCalcDelBtn={props.onCalcDelBtn}
             CalcSubmitHandler={props.CalcSubmitHandler}
-            onUndoBtnClick={props.onUndoBtnClick} />
-          </ReactCSSTransitionGroup>
+            onUndoBtnClick={props.onUndoBtnClick}
+            player1LostCount={props.player1LostCount}
+            player2LostCount={props.player2LostCount}
+            displayResetCard={props.displayResetCard} />
+        </ReactCSSTransitionGroup>
       )} />
       
       <Route path="/duel/rules" component={RuleBook} />
@@ -69,7 +72,10 @@ Duel.propTypes = {
   CalcSubmitHandler: PropTypes.func.isRequired,
   onUndoBtnClick: PropTypes.func.isRequired,
   headerExists: PropTypes.bool.isRequired,
-  toggleHeaderExistance: PropTypes.func.isRequired,
+  toggleHeaderExistsProperty: PropTypes.func.isRequired,
+  player1LostCount: PropTypes.number.isRequired,
+  player2LostCount: PropTypes.number.isRequired,
+  displayResetCard: PropTypes.bool.isRequired,
 };
 
 export default Duel;

@@ -5,15 +5,15 @@ import { NavLink } from 'react-router-dom';
 export default class Header extends Component {
 
   static propTypes = {
-    toggleHeaderExistance:  PropTypes.func.isRequired,
+    toggleHeaderExistsProperty:  PropTypes.func.isRequired,
   }
 
   componentDidMount() {
-    this.props.toggleHeaderExistance();
+    this.props.toggleHeaderExistsProperty();
   }
 
   componentWillUnmount() {
-    this.props.toggleHeaderExistance();
+    this.props.toggleHeaderExistsProperty();
   }
 
   render() {
