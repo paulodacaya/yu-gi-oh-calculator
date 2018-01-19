@@ -24,24 +24,24 @@ const ResetCard = props => (
     shouldCloseOnOverlayClick={false}
     style={ResetCardModalStyles} >
 
-    <form
-      id="reset-card" >
-      
+    <div id="reset-card">
       <div>
         <h2>game over</h2>
         <h3>the winner is</h3>
         <h1>FRANK</h1>
         <div className="buttons">
-          <button>start a new game</button>
-          <button>next round</button>
+          <button type="button" onClick={props.handleNewGameBtnClick}>start a new game</button>
+          <button type="button" onClick={props.handleNextRoundBtnClick}>next round</button>
         </div>
       </div>
-    </form>
+    </div>
   </Modal>
 );
 
 ResetCard.propTypes = {
   displayResetCard: PropTypes.bool.isRequired,
+  handleNewGameBtnClick: PropTypes.func.isRequired,
+  handleNextRoundBtnClick: PropTypes.func.isRequired,
 }
 
 export default ResetCard;

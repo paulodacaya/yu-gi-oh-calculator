@@ -42,7 +42,9 @@ const DuelBoard = props => (
       alt="versus logo" />
 
     <ResetCard 
-      displayResetCard={props.displayResetCard} />
+      displayResetCard={props.displayResetCard}
+      handleNewGameBtnClick={props.onNewGameBtnClick}
+      handleNextRoundBtnClick={props.onNextRoundBtnClick} />
   </main>
 );
 
@@ -60,6 +62,8 @@ DuelBoard.propTypes = {
   player1LostCount: PropTypes.number.isRequired,
   player2LostCount: PropTypes.number.isRequired,
   displayResetCard: PropTypes.bool.isRequired,
+  onNewGameBtnClick: PropTypes.func.isRequired,
+  onNextRoundBtnClick: PropTypes.func.isRequired,
 };
 
 export default DuelBoard; 

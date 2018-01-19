@@ -9,43 +9,46 @@ import NotFound from '../components/NotFound';
 //CSS
 import '../css/index.css';
 
+const initialState = {
+  duelist1: "",
+  duelist2: "",
+  winner: null,
+  fireRedirect: false,
+  headerExists: false,
+  displayResetCard: false,
+
+  duelers: [
+    {
+      index: 0,
+      
+      name: "duelist",
+      lifePoints: 8000,
+      calculate: "",
+      prevlifePoints: null,
+      lostCount: 0,
+      
+      calcIsOpen: false,
+      isEditing: false,
+    },
+    {
+      index: 1,
+      
+      name: "duelist",
+      lifePoints: 8000,
+      calculate: "",
+      prevlifePoints: null,
+      lostCount: 0,
+
+      calcIsOpen: false,
+      isEditing: false,
+    },
+  ],
+}
+
 export default class App extends Component {
-  
-  state = {
-    duelist1: "",
-    duelist2: "",
-    winner: null,
-    fireRedirect: false,
-    headerExists: false,
-    displayResetCard: false,
 
-    duelers: [
-      {
-        index: 0,
-        
-        name: "duelist",
-        lifePoints: 8000,
-        calculate: "",
-        prevlifePoints: null,
-        lostCount: 0,
-        
-        calcIsOpen: false,
-        isEditing: false,
-      },
-      {
-        index: 1,
-        
-        name: "duelist",
-        lifePoints: 8000,
-        calculate: "",
-        prevlifePoints: null,
-        lostCount: 0,
+  state = initialState
 
-        calcIsOpen: false,
-        isEditing: false,
-      },
-    ],
-  }
   //-------------------------------------------------------------
   toggleProperty = property => {
     const propertyName = this.state.property;
@@ -121,7 +124,6 @@ export default class App extends Component {
           }
         }
 
-        //if index not match
         return duelist;
       })
     });
@@ -220,13 +222,20 @@ export default class App extends Component {
 
         if(index === PlayerIndex) {
           const { lifePoints, calculate, lostCount } = duelist;
-          const productlP = this.handleLifePointCalculation(lifePoints, calculate);
-          let totalLostCount = 0;
+          let productlP = this.handleLifePointCalculation(lifePoints, calculate);
 
-          //When duelist loses
+          //when duelist loses
           if(productlP === 0) {
+            // const winner = this.getWinner();
             this.toggleDisplayResetCardProperty();
-            totalLostCount = lostCount + 1;
+            return {
+              ...duelist,
+              calcIsOpen: false,
+              calculate: "",
+              prevlifePoints: lifePoints,
+              lifePoints: 8000,
+              lostCount: lostCount + 1,
+            }
           }
           
           return {
@@ -235,7 +244,6 @@ export default class App extends Component {
             calculate: "",
             prevlifePoints: lifePoints,
             lifePoints: productlP,
-            lostCount: totalLostCount, 
           }
         }
         
@@ -249,11 +257,20 @@ export default class App extends Component {
     let product;
 
     if(equation.startsWith("-") || equation.startsWith("+") || equation.startsWith("*")) {
-      product = Math.ceil( eval(lifePoints.concat(equation)) );
+      try {
+        product = Math.ceil( eval(lifePoints.concat(equation)) );
+      } catch(error) {
+        error instanceof SyntaxError 
+        ? alert(error.message) 
+        : alert('Invalid equation input, please try again.');
+        
+        product = lifePoints;
+      }
     } else {
       product = lifePoints;
     }
-
+    
+    //if project is negative
     if(product <= 0) {
       product = 0;
     }
@@ -261,10 +278,21 @@ export default class App extends Component {
     return product;
   }
 
-
-
+  // getWinner = () => {}
 
   //-------------------------------------------------------------
+  onNewGameBtnClick = () => {
+    this.setState(initialState);
+  }
+
+  onNextRoundBtnClick = () => {
+    this.setState({
+      displayResetCard: false,
+    })
+  }
+
+  //-------------------------------------------------------------
+
   render() {
     return (
       <HashRouter>
@@ -296,7 +324,9 @@ export default class App extends Component {
                   toggleHeaderExistsProperty={this.toggleHeaderExistsProperty}
                   player1LostCount={this.state.duelers[0].lostCount}
                   player2LostCount={this.state.duelers[1].lostCount}
-                  displayResetCard={this.state.displayResetCard} />
+                  displayResetCard={this.state.displayResetCard}
+                  onNewGameBtnClick={this.onNewGameBtnClick}
+                  onNextRoundBtnClick={this.onNextRoundBtnClick} />
               } />
               
               <Route render={ () => 

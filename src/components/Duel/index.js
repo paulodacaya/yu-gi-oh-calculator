@@ -47,7 +47,9 @@ const Duel = props => (
             onUndoBtnClick={props.onUndoBtnClick}
             player1LostCount={props.player1LostCount}
             player2LostCount={props.player2LostCount}
-            displayResetCard={props.displayResetCard} />
+            displayResetCard={props.displayResetCard}
+            onNewGameBtnClick={props.onNewGameBtnClick}
+            onNextRoundBtnClick={props.onNextRoundBtnClick} />
         </ReactCSSTransitionGroup>
       )} />
       
@@ -76,6 +78,8 @@ Duel.propTypes = {
   player1LostCount: PropTypes.number.isRequired,
   player2LostCount: PropTypes.number.isRequired,
   displayResetCard: PropTypes.bool.isRequired,
+  onNewGameBtnClick: PropTypes.func.isRequired,
+  onNextRoundBtnClick: PropTypes.func.isRequired,
 };
 
 export default Duel;
