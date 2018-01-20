@@ -271,6 +271,7 @@ export default class App extends Component {
         product = lifePoints;
       }
     } else {
+      alert('Invalid equation input, please initialize with +, - or x.');
       product = lifePoints;
     }
     
