@@ -1,0 +1,36 @@
+<svg width="252.09" height="100.27" version="1.1" viewBox="0 0 66.697866 26.527972" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient889">
+   <stop stop-color="#f00" offset="0"/>
+   <stop stop-color="#f00" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient861">
+   <stop stop-color="#333" offset="0"/>
+   <stop stop-color="#ccc" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3730" x1="171.99" x2="171.99" y1="129.99" y2="119.33" gradientTransform="matrix(.95757 0 0 .95757 -15.882 -128.6)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient861"/>
+  <radialGradient id="radialGradient3732" cx="172.11" cy="125.3" r="1.76" gradientTransform="matrix(6.3759e-6 -1.6376 1.6342 5.1995e-5 -55.978 272.72)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient889"/>
+ </defs>
+ <g transform="translate(-77.483 .47919)">
+  <path d="m77.748-0.21491v13h5.3e-4l7.5055 13h51.157l7.5055-13h5.3e-4v-13h-39.347z" fill="#8d8f91" stroke-width=".26458"/>
+  <g transform="matrix(.50195 0 0 .50195 66.402 9.2732)">
+   <circle cx="148.8" cy="-9.1915" r="4.5242" fill="url(#linearGradient3730)"/>
+   <circle cx="148.8" cy="-9.1915" r="4.2522"/>
+   <circle cx="148.8" cy="-9.1915" r="2.2885" fill="#999"/>
+   <circle cx="148.8" cy="-9.1915" r="1.8781"/>
+   <circle cx="148.8" cy="-9.1915" r="1.76" fill="url(#radialGradient3732)"/>
+   <circle cx="148.06" cy="-9.7715" r=".42522" fill="#fff"/>
+  </g>
+  <path d="m84.252 24.048 1.003 1.7368h51.155l1.003-1.7368h-32.843z" fill="#4d4d4d"/>
+  <path d="m77.749-0.21491v1.7368h66.168v-1.7368h-39.346z" fill="#4d4d4d" stroke-width=".26458"/>
+  <g transform="matrix(.50195 0 0 .50195 6.1117 9.2732)">
+   <circle cx="148.8" cy="-9.1915" r="4.5242" fill="url(#linearGradient3730)"/>
+   <circle cx="148.8" cy="-9.1915" r="4.2522"/>
+   <circle cx="148.8" cy="-9.1915" r="2.2885" fill="#999"/>
+   <circle cx="148.8" cy="-9.1915" r="1.8781"/>
+   <circle cx="148.8" cy="-9.1915" r="1.76" fill="url(#radialGradient3732)"/>
+   <circle cx="148.06" cy="-9.7715" r=".42522" fill="#fff"/>
+  </g>
+  <path d="m112.12 3.3324c-0.14279-3.7e-6 -0.25787 0.11456-0.25787 0.25735v0.70383h0.51573v-0.70383c0-0.14279-0.11507-0.25735-0.25786-0.25735zm-0.25787 1.2893v0.9493h0.51573v-0.9493zm0 1.2774v0.9493h0.51573v-0.9493zm0 1.2769v0.9493h0.51573v-0.9493zm0 1.2774v0.9493h0.51573v-0.9493zm0 1.2774v0.94878h0.51573v-0.94878zm0 1.2769v0.9493h0.51573v-0.9493zm0 1.2774v0.9493h0.51573v-0.9493zm0 1.2769v0.9493h0.51573v-0.9493zm0 1.2774v0.9493h0.51573v-0.9493zm0 1.2774v0.94878h0.51573v-0.94878zm0 1.2769v0.9493h0.51573v-0.9493zm0 1.2774v0.9493h0.51573v-0.9493zm0 1.2769v0.9493h0.51573v-0.9493zm0 1.2774v0.75344c0 0.14279 0.11508 0.25786 0.25787 0.25786s0.25786-0.11508 0.25786-0.25786v-0.75344z" fill="#4d4d4d" opacity=".752"/>
+ </g>
+</svg>
