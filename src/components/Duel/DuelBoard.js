@@ -62,7 +62,7 @@ DuelBoard.propTypes = {
   onUndoBtnClick: PropTypes.func.isRequired,
   player1LostCount: PropTypes.number.isRequired,
   player2LostCount: PropTypes.number.isRequired,
-  winner: PropTypes.string.isRequired,
+  winner: PropTypes.string,
   displayResetCard: PropTypes.bool.isRequired,
   onNewGameBtnClick: PropTypes.func.isRequired,
   onNextRoundBtnClick: PropTypes.func.isRequired,

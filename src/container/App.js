@@ -57,12 +57,11 @@ export default class App extends Component {
     })
   }
 
-  toggleHeaderExistsProperty = () => this.toggleProperty('headerExists') //used for 404 page.
-  toggleDisplayResetCardProperty = () => this.toggleProperty('displayResetCard')
+  toggleHeaderExistsProperty = () => this.toggleProperty('headerExists'); //used for 404 page.
+  toggleDisplayResetCardProperty = () => this.toggleProperty('displayResetCard'); 
   //-------------------------------------------------------------
   handlePlayerInput = event  => {
-    const name = event.target.name; //name of input
-    const value = event.target.value; //value of input
+    const { name, value } = event.target;
 
     this.setState({
       [name]: value,
@@ -70,7 +69,7 @@ export default class App extends Component {
   }
 
   playersSubmitHandler = event => {
-    event.preventDefault(); //prevent default browser refresh
+    event.preventDefault();
 
     const { duelist1, duelist2 } = this.state;
     let duelistNames = [duelist1, duelist2];
@@ -264,14 +263,11 @@ export default class App extends Component {
       try {
         product = Math.ceil( eval(lifePoints.concat(equation)) );
       } catch(error) {
-        error instanceof SyntaxError 
-        ? alert(error.message) 
-        : alert('Invalid equation input, please try again.');
-        
+        alert(`Invalid equation input. Please try again.\n${error.name}: ${error.message}.`);
         product = lifePoints;
       }
     } else {
-      alert('Invalid equation input, please initialize with +, - or x.');
+      alert('Invalid equation input. Please initialize with +, - or x.');
       product = lifePoints;
     }
     

@@ -40,7 +40,7 @@ const ResetCard = props => (
 
 ResetCard.propTypes = {
   displayResetCard: PropTypes.bool.isRequired,
-  winner: PropTypes.string.isRequired,
+  winner: PropTypes.string,
   handleNewGameBtnClick: PropTypes.func.isRequired,
   handleNextRoundBtnClick: PropTypes.func.isRequired,
 
