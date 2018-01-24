@@ -24,7 +24,7 @@ const initialState = {
       name: "duelist",
       lifePoints: 8000,
       calculate: "",
-      prevlifePoints: null,
+      prevlifePoints: 8000,
       lostCount: 0,
       
       calcIsOpen: false,
@@ -36,7 +36,7 @@ const initialState = {
       name: "duelist",
       lifePoints: 8000,
       calculate: "",
-      prevlifePoints: null,
+      prevlifePoints: 8000,
       lostCount: 0,
 
       calcIsOpen: false,
