@@ -528,6 +528,15 @@ How to use App Styles
 } 
 
 /* ========================== 
+Dice Styles
+============================= */
+.dice {
+  position: absolute;
+  top: 50%;
+  right: 12%;
+}
+
+/* ========================== 
 Not Found Page Styles
 ============================= */
 
@@ -657,12 +666,13 @@ Media Queries
   .appguide > div:first-child {
     margin-right: 2em;
   }
-
   #winCounter {
     display: block;
   }
-
-  
+  .dice {
+    top: 21%;
+    right: 19%;
+  }  
 }
 
 

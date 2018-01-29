@@ -4,37 +4,35 @@ import PropTypes from 'prop-types';
 import DuelPlayer from './DuelPlayer';
 import DuelWinCounter from './DuelWinCounter';
 import ResetCard from './ResetCard';
+import Dice from './Dice';
 
 const DuelBoard = props => (
   <main className="duel-board">
-
+    
     <DuelWinCounter 
       //when player1 loses, it becomes players2 win count, vice versa.
       player1WinCount={props.player2LostCount} 
       player2WinCount={props.player1LostCount} />
 
-    {
-      props.duelers
-        .map( (duelist, index) => (
-          <DuelPlayer 
-            key={index}
-            name={duelist.name}
-            lifePoints={duelist.lifePoints}
-            calculate={duelist.calculate}
-            isEditing={duelist.isEditing}
-            calcIsOpen={duelist.calcIsOpen}
-            handleToggleEditing={() => props.toggleEditing(duelist.index) }
-            changePlayerName={ text => props.changePlayerName(text, index) }
-            onKeyPress={ key => props.onKeyPress(key, index) }
-            handleToggleCalcOpen={ () => props.toggleCalcOpen(duelist.index) }
-            onCalcBtnClick={ btn => props.onCalcBtnClick(btn, index) }
-            onClearDisplayBtn={ () => props.onClearDisplayBtn(index) }
-            onCalcDelBtn={ () => props.onCalcDelBtn(index) }
-            CalcSubmitHandler={ e => props.CalcSubmitHandler(e, index) }
-            handleUndoBtnClick={ () => props.onUndoBtnClick(index) } />
-        )
+    {props.duelers.map( (duelist, index) => (
+      <DuelPlayer 
+        key={index}
+        name={duelist.name}
+        lifePoints={duelist.lifePoints}
+        calculate={duelist.calculate}
+        isEditing={duelist.isEditing}
+        calcIsOpen={duelist.calcIsOpen}
+        handleToggleEditing={() => props.toggleEditing(duelist.index) }
+        changePlayerName={ text => props.changePlayerName(text, index) }
+        onKeyPress={ key => props.onKeyPress(key, index) }
+        handleToggleCalcOpen={ () => props.toggleCalcOpen(duelist.index) }
+        onCalcBtnClick={ btn => props.onCalcBtnClick(btn, index) }
+        onClearDisplayBtn={ () => props.onClearDisplayBtn(index) }
+        onCalcDelBtn={ () => props.onCalcDelBtn(index) }
+        CalcSubmitHandler={ e => props.CalcSubmitHandler(e, index) }
+        handleUndoBtnClick={ () => props.onUndoBtnClick(index) } />
       )
-    }
+    )}
 
     <img 
       className="vs-image" 
@@ -46,6 +44,9 @@ const DuelBoard = props => (
       winner={props.winner}
       handleNewGameBtnClick={props.onNewGameBtnClick}
       handleNextRoundBtnClick={props.onNextRoundBtnClick} />
+
+    <Dice />
+    
   </main>
 );
 
