@@ -17,7 +17,10 @@ const AppGuide = () => (
     
       <ul>
         <li><span>undo recent calculations:</span> Click on undo button that will undo the most recent calculation, cannot undo further calculations.</li>
-        <li><span>Reset lifePoints:</span> Refreshing the page will reset to default. </li>
+        <li><span>Reset lifePoints:</span> Refreshing the page will reset to default.</li>
+        <li><span>Roll the dice:</span> Clicking on dice will roll it.</li>
+        <li><span>Flip a coin:</span> Clicking on the coin will randomly choose heads or tails.</li>
+        <li><span>Timer:</span> You can start/stop the timer, reset to 40 minutes (default) and increment/decrement the timer.</li>
         <li><span>change player name:</span> Double click on player name, input anything you desire, hit 'enter' on keyboard or click 'OK'.</li>
       </ul>
       <img 
