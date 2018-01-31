@@ -47,6 +47,19 @@ Example:
 #### Undo Previous Calculation
 Click on undo button that will undo the most recent calculation, cannot undo further calculations.
 
+#### Roll the Dice/Flip a Coin
+Pretty straight forwards, just simply click on the dice to roll it or click on the coin to reveal heads or tails.
+
+#### Countdown timer
+By default, Yu-Gi-Oh duels should go for 40 minutes, so that is the default timer. Features include:
+- Changing the intial timer by clicking on the '+' or "-" icon and it will change by 1 minute depending on what you click.
+- Start/Stop - start or stop the timer.
+- Reset - It will reset back to default timer (40 minutes).
+
+
+## Future Features
+- Action log count. A log displaying what's happened throughout the duel for reference.
+
 ## Built With
 - React.js
 
