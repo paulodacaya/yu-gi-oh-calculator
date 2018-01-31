@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+//components
 import DuelPlayer from './DuelPlayer';
 import DuelWinCounter from './DuelWinCounter';
 import ResetCard from './ResetCard';
-import Dice from './Dice';
+import CountDownTimer from '../CountDownTimer';
 
 const DuelBoard = props => (
   <main className="duel-board">
-    
-    <DuelWinCounter 
-      //when player1 loses, it becomes players2 win count, vice versa.
-      player1WinCount={props.player2LostCount} 
-      player2WinCount={props.player1LostCount} />
+    <CountDownTimer />
 
     {props.duelers.map( (duelist, index) => (
       <DuelPlayer 
@@ -33,20 +30,20 @@ const DuelBoard = props => (
         handleUndoBtnClick={ () => props.onUndoBtnClick(index) } />
       )
     )}
-
     <img 
       className="vs-image" 
       src={ require('../../assets/versus-img.png') } 
       alt="versus logo" />
 
+    <DuelWinCounter 
+      //when player1 loses, it becomes players2 win count, vice versa.
+      player1WinCount={props.player2LostCount} 
+      player2WinCount={props.player1LostCount} />
     <ResetCard 
       displayResetCard={props.displayResetCard}
       winner={props.winner}
       handleNewGameBtnClick={props.onNewGameBtnClick}
       handleNextRoundBtnClick={props.onNextRoundBtnClick} />
-
-    <Dice />
-    
   </main>
 );
 

@@ -18,7 +18,7 @@ export default class Dice extends Component {
           outline={true}
           outlineColor="#1e2326"
           faceColor="#8d8f91"
-          dotColor="#da4453"
+          dotColor="#df2327"
           rollDone={this.rollDoneCallback} />
       </div>
     )

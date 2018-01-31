@@ -139,7 +139,7 @@ Intro Card
 }
 
 /* ========================== 
-Dueling Styles - Header
+Header
 ============================= */
 
 .duel-container header {
@@ -197,7 +197,7 @@ header ul li:focus {
 
 
 /* ========================== 
-Dueling Styles - Duelist
+DuelBoard/Players
 ============================= */
 
 .duel-board {
@@ -209,7 +209,7 @@ Dueling Styles - Duelist
   justify-content: space-between;
   align-items: center;
 
-  padding-top: 4em; /* remove header problem */
+  padding-top: 8em; /* remove header problem */
   max-width: var(--score-boardmw);
   margin: 0 auto;
   height: calc(100vh - var(--header-height));
@@ -309,14 +309,14 @@ Dueling Styles - Duelist
 #winCounter {
   position: absolute;
   left: 50%;
-  top: 20%;
+  top: 30%;
   transform: translateX(-50%);
 
   display: none;
   text-align: center;
   line-height: 1.5;
  
-  width: 263px;
+  width: 252px; /* 263 px */
   height: 100px;
   background: url('../assets/score-plate.svg') no-repeat;
   background: cover;
@@ -325,10 +325,11 @@ Dueling Styles - Duelist
 
 #winCounter span:first-child {
   margin-right: 1em;
+  padding-left: 10px; /* centres numbers i background */
 }
 
 /* ========================== 
-Dueling Styles - Calculator 
+Dueling Calculator 
 ============================= */
 #calculator {
   width: 300px;
@@ -382,7 +383,7 @@ Dueling Styles - Calculator
 }
 
 /* ========================== 
-Dueling Styles - Reset Card 
+Reset Card (displays winner)
 ============================= */
 #reset-card {
   width: 100%;
@@ -464,7 +465,7 @@ Dueling Styles - Reset Card
 
 
 /* ========================== 
-Yu-Gi-Oh Dueling Rules Styles
+Official RuleBook
 ============================= */
 .rulebook-container {
   padding-top: 1em;
@@ -478,7 +479,7 @@ Yu-Gi-Oh Dueling Rules Styles
 }
 
 /* ========================== 
-How to use App Styles
+App Guide (How to use App)
 ============================= */
 
 .appguide {
@@ -528,14 +529,102 @@ How to use App Styles
 } 
 
 /* ========================== 
+Count Down Timer
+============================= */
+.countdowntimer {
+  position: absolute;
+  top: calc(var(--header-height) - 20px);
+  left: 50%;  
+  transform: translateX(-50%);
+}
+.clock {
+  background-color: var(--background-grey);
+  border: 5px solid var(--background-border);
+  
+  padding: 0.25em 0.5em;
+  
+  position: relative; /* for dice */
+}
+.clock span {
+  font-size: 2.5em;
+}
+
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+.controls button {
+  text-transform: uppercase;
+  border: 1px solid rgba( 238, 238, 238, .2);
+  padding: 0;
+  font-weight: 700;
+  cursor: pointer; 
+}
+.plus-minus,
+.reset {
+  background-color: var(--lightred);
+  flex-grow: 1;
+}
+.start-stop {
+  background-color: var(--lightgreen);
+  flex-grow: 2;
+}
+
+.plus-minus button {
+  width: 100%;
+  height: 50%;
+  background-color: var(--calc-black);
+  color: var(--white);
+  font-size: 1em;
+}
+
+/* ========================== 
 Dice Styles
 ============================= */
 .dice {
   position: absolute;
-  top: 50%;
-  right: 12%;
+  top: 10%;
+  right: -80%;
+  cursor: pointer;
+}
+/* ========================== 
+Coin Styles
+============================= */
+.coin {
+  position: absolute;
+  top: 30%;
+  left: -70%;
+  cursor: pointer;
+
+  background-color: var(--background-grey);
+  border: 2px solid var(--background-border);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coin > span {
+  text-transform: uppercase;
+  font-size: 1em;
 }
 
+.coin-display {
+  top: 52.5%;
+  left: -63%;
+  transform: scale(1); 
+  width: 40px;
+  height: 40px;
+  text-transform: uppercase;
+  z-index: -1;
+  font-size: 0.8em;
+
+  opacity: 0;
+  transition: all 0.5s ease;
+}
 /* ========================== 
 Not Found Page Styles
 ============================= */
@@ -600,6 +689,18 @@ ReactCSSTransitionGroup Styles
   transition: transform 500ms cubic-bezier(.38,.01,.07,1.33);
 }
 
+.coin-flip-enter {
+  transition: all 0.2s;
+  transform: scale(1); 
+  opacity: 1;
+  z-index: 1;
+}
+.coin-flip-enter.coin-flip-enter-active {
+  transform: scale(2.5); 
+}
+.coin-flip-leave {
+  display: none;
+}
 
 
 
@@ -608,13 +709,6 @@ ReactCSSTransitionGroup Styles
 /* ===================================================== 
 Media Queries
 ===================================================== */
-
-@media (min-height: 750px) {
-  .vs-image {
-    display: block;
-  }
-}
-
 
 @media (min-width: 500px) {
   :root {
@@ -630,10 +724,6 @@ Media Queries
   header ul li {
     margin-left: 0.4em;
   }
-  .vs-image {
-    display: block;
-  }
-
   #reset-card .buttons {
     flex-direction: row;
   }
@@ -648,11 +738,12 @@ Media Queries
     --header-height: 8em;
     --winner-fontsize: 6.5em;
   }
-
   header ul  {
     font-size: 1.5em;
   }
-
+  .vs-image {
+    display: block;
+  }
   .duel-board {
     flex-direction: row;
   }
@@ -669,10 +760,9 @@ Media Queries
   #winCounter {
     display: block;
   }
-  .dice {
-    top: 21%;
-    right: 19%;
-  }  
+  .clock > span {
+    font-size: 4em;
+  }
 }
 
 

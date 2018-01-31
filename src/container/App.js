@@ -60,8 +60,13 @@ export default class App extends Component {
   toggleHeaderExistsProperty = () => this.toggleProperty('headerExists'); //used for 404 page.
   toggleDisplayResetCardProperty = () => this.toggleProperty('displayResetCard'); 
   //-------------------------------------------------------------
-  handlePlayerInput = event  => {
+  handlePlayerInput = event => {
     const { name, value } = event.target;
+    
+    if(value.length > 11) {
+      alert('Name must be 10 characters or lower\nto fit in name plate correctly. Thank you.');
+      return null;
+    }
 
     this.setState({
       [name]: value,
@@ -75,6 +80,7 @@ export default class App extends Component {
     let duelistNames = [duelist1, duelist2];
     duelistNames = duelistNames.map( name => name === "" ? name = "duelist" : name )
     
+
     this.setState({
       duelers: this.state.duelers.map( (duelist, index) => {
         return {
@@ -113,8 +119,8 @@ export default class App extends Component {
 
   //-------------------------------------------------------------
   changePlayerName = (name, PlayersIndex) => {
-    if(name.length > 12) {
-      alert('Name must be below 12 characters to fit correctly in name plate. Thank you.');
+    if(name.length > 11) {
+      alert('Name must be 10 characters or lower\nto fit in name plate correctly. Thank you.');
       return null;
     }
     

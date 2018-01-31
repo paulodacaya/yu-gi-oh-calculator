@@ -10,14 +10,14 @@ export default class RuleBook extends Component {
 
   onDocumentLoad = ({ numPages }) => {
     //create array with the page numbers extracted from PDF
-    let pages = [];
+    let pageNumbers = [];
     for(let i = 1; i < numPages + 1; i++) {
-      pages.push(i);
+      pageNumbers.push(i);
     }
 
     this.setState({
-      numPages, //numPages: NumPages
-      pageNumbers: pages,
+      numPages,
+      pageNumbers,
     });
   }
 

@@ -16,11 +16,16 @@ CSS variables
 	
 	/* colors */
 	--white: #fff;
-	--grey: #eeeeee;
-	--black: rgb(20, 20, 20);
 	
-	--yellow: rgb(219, 204, 27);
-	--lightyellow: rgb(240, 240, 191);
+	--black: #141414;
+	--calc-black: #1e2326;
+	
+	--grey: #eee;
+	--background-grey: #8d8f91;
+	--background-border: #4d4d4d;
+	
+	--yellow: #dbcc1b;
+	--lightyellow: #f0f0bf;
 	
 	--red: #da4453;
 	--lightred: #ed5565;
@@ -34,7 +39,6 @@ CSS variables
 	--blue: #3bafda;
 	--mint: #37bc9b;
 
-	--calc-black: rgb(30, 35, 38);
 }
 
 
