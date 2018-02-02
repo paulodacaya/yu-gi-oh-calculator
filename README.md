@@ -5,7 +5,7 @@ An application that makes it easier for yu-gi-oh trading card game dueling. This
 
 ## Getting Started
 Please visit the following link where the application is hosted:
-[Yu-Gi-Oh Calculator](https://paulodacaya.xyz/yu-gi-oh-calculator/#/). Enjoy!
+[Yu-Gi-Oh Calculator](http://paulodacaya.xyz/yu-gi-oh-calculator/#/). Enjoy!
 
 ## How To Use Application 
 You will initially be greeted with and display card that advices to input two duelist names. Hit Enter or click 'Go' to move to dueling UI.
@@ -58,7 +58,7 @@ By default, Yu-Gi-Oh duels should go for 40 minutes, so that is the default time
 
 
 ## Future Features
-- Action log count. A log displaying what's happened throughout the duel for reference.
+- Action log count. A log displaying whats happened throughout the duel for reference.
 
 ## Built With
 - React.js
