@@ -1,5 +1,5 @@
 import React, { Component, Fragment, } from 'react';
-import { HashRouter, Route, Switch, } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, } from 'react-router-dom';
 
 //component imports
 import Card from '../components/Card';
@@ -309,7 +309,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter basename="/yu-gi-oh-calculator">
         <Fragment> 
             <Switch>
               
@@ -349,7 +349,7 @@ export default class App extends Component {
               } />
             </Switch>
         </Fragment>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
