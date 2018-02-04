@@ -26,6 +26,7 @@ export default class Header extends Component {
         <ReactAudioPlayer
           src={duelingAudio}
           autoPlay
+          volume={0.2}
         />
 
         <header>
