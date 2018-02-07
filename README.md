@@ -56,9 +56,17 @@ By default, Yu-Gi-Oh duels should go for 40 minutes, so that is the default time
 - Start/Stop - start or stop the timer.
 - Reset - It will reset back to default timer (40 minutes).
 
+#### Action log
+Keeps track of actions and logs them in the view log. You can view the Log by clicking on the "show log" button on the bottom right of the screen. The log tracks the following actions:
+- Calculated differences
+- Dice roll number
+- Coin Toss value
+- Duelist who has lost
+- Undo button clicks
 
-## Future Features
-- Action log count. A log displaying whats happened throughout the duel for reference.
+## Future Features/Fixes
+- Refactor/review entire code
+- Refactor and clean CSS to increase maintanability
 
 ## Built With
 - React.js
