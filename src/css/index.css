@@ -625,6 +625,49 @@ Coin Styles
   opacity: 0;
   transition: all 0.5s ease;
 }
+
+/* ========================== 
+Log
+============================= */
+.log-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.log-container button {
+  background-color: var(--background-grey);
+  border: 2px solid var(--background-border);
+  padding: 1em 2em;
+  font-weight: 700;
+  text-transform: uppercase; 
+}
+
+.log {
+  position: relative;
+  font-size: 0.8em;
+  font-weight: normal;
+  letter-spacing: 1;
+  line-height: 2;
+  overflow: auto;
+  width: 100vw; 
+  height: 35vh;
+  background-color: var(--grey);
+  border: 2px solid var(--background-border);
+  padding: 1em;
+}
+.log > span {
+  position: absolute;
+  top: -7px;
+  right: 10px;
+  
+  cursor: pointer;
+  font-size: 2em;
+}
+
+
+
+
+
 /* ========================== 
 Not Found Page Styles
 ============================= */
