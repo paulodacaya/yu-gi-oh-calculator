@@ -43,6 +43,8 @@ const initialState = {
       isEditing: false,
     },
   ],
+
+  logs: [],
 }
 
 export default class App extends Component {
@@ -155,9 +157,13 @@ export default class App extends Component {
     this.setState({
       
       duelers: this.state.duelers.map( (duelist, index) => {
-        const { prevlifePoints } = duelist;
+        const { prevlifePoints, lifePoints } = duelist;
         
         if(index === PlayerIndex) {
+          if( lifePoints !== prevlifePoints ) {
+            this.onLogUpdate( `${duelist.name.toUpperCase()} undid lifepoints back to ${prevlifePoints}` );
+          }
+
           return {
             ...duelist,
             lifePoints: prevlifePoints,
@@ -231,11 +237,12 @@ export default class App extends Component {
 
         if(index === PlayerIndex) {
           const { lifePoints, calculate, lostCount } = duelist;
-          let productlP = this.handleLifePointCalculation(lifePoints, calculate);
+          let productlP = this.handleLifePointCalculation(lifePoints, calculate, duelist);
 
           //when duelist loses
           if(productlP === 0) {
             this.setWinner(index);
+            this.onLogUpdate(`${duelist.name.toUpperCase()} has lost`);
             this.toggleDisplayResetCardProperty();
             return {
               ...duelist,
@@ -247,6 +254,8 @@ export default class App extends Component {
             }
           }
           
+          
+
           return {
             ...duelist,
             calcIsOpen: false,
@@ -261,13 +270,14 @@ export default class App extends Component {
     })
   }
 
-  handleLifePointCalculation = (lifePoints, equation) => {
+  handleLifePointCalculation = (lifePoints, equation, duelist) => {
     lifePoints = String(lifePoints);
     let product;
 
     if(equation.startsWith("-") || equation.startsWith("+") || equation.startsWith("*")) {
       try {
         product = Math.ceil( eval(lifePoints.concat(equation)) );
+        this.onLogUpdate( `${eval(equation)} to ${duelist.name.toUpperCase()}'s lifepoints` ) 
       } catch(error) {
         alert(`Invalid equation input. Please try again.\n${error.name}: ${error.message}.`);
         product = lifePoints;
@@ -277,7 +287,7 @@ export default class App extends Component {
       product = lifePoints;
     }
     
-    //if product is negative
+    //prevent negative value
     if(product <= 0) {
       product = 0;
     }
@@ -285,8 +295,6 @@ export default class App extends Component {
     return product;
   }
 
-  //not clean way of doing things,
-  //need to find better solution.
   setWinner = index => {
     const winner = index === 0 ? this.state.duelers[1].name : this.state.duelers[0].name;
     this.setState({
@@ -302,6 +310,18 @@ export default class App extends Component {
   onNextRoundBtnClick = () => {
     this.setState({
       displayResetCard: false,
+    })
+  }
+
+  //-------------------------------------------------------------
+  onLogUpdate = newLog => {
+    const { logs } = this.state;
+
+    this.setState({
+      logs: [
+        ...logs,
+        newLog
+      ]
     })
   }
 
@@ -341,7 +361,9 @@ export default class App extends Component {
                   winner={this.state.winner}
                   displayResetCard={this.state.displayResetCard}
                   onNewGameBtnClick={this.onNewGameBtnClick}
-                  onNextRoundBtnClick={this.onNextRoundBtnClick} />
+                  onNextRoundBtnClick={this.onNextRoundBtnClick}
+                  logs={this.state.logs}
+                  onLogUpdate={this.onLogUpdate} />
               } />
               
               <Route render={ () => 

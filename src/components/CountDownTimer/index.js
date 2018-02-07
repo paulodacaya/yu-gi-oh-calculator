@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 //import components
 import Clock from './Clock';
 import Controls from './Controls';
 
 export default class CountDownTimer extends Component {
+
+  static propTypes = {
+    onLogUpdate: PropTypes.func.isRequired,
+  }
 
   state = {
     totalSeconds: 2400, // 2400seconds = 40 minutes
@@ -60,7 +65,9 @@ export default class CountDownTimer extends Component {
 
     return (
       <div className="countdowntimer">
-        <Clock totalSeconds={totalSeconds} />
+        <Clock 
+          totalSeconds={totalSeconds} 
+          onLogUpdate={this.props.onLogUpdate} />
         <Controls 
           running={running}
           handleStart={this.onStart}

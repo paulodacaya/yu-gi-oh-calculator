@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDice from 'react-dice-complete'
 import 'react-dice-complete/dist/react-dice-complete.css'
 
 export default class Dice extends Component {
 
-  //use callback to create a duel log.
-  rollDoneCallback = () => {
-    console.log('Dice finish rolling');
+  static propTypes = {
+    handleLogUpdate: PropTypes.func.isRequired,
+  }
+
+  rollDoneCallback = num => {
+    console.log(num);
+    this.props.handleLogUpdate( `Dice rolled to ${num}`);
   }
 
   render() {

@@ -9,6 +9,7 @@ export default class Clock extends Component {
 
   static propTypes = {
     totalSeconds: PropTypes.number.isRequired,
+    onLogUpdate: PropTypes.func.isRequired,
   }
 
   formatSeconds = totalSeconds => {
@@ -35,8 +36,8 @@ export default class Clock extends Component {
         <span>
           {this.formatSeconds(totalSeconds)} 
         </span>
-        <Coin />
-        <Dice />
+        <Coin handleLogUpdate={this.props.onLogUpdate} />
+        <Dice handleLogUpdate={this.props.onLogUpdate} />
       </div>
     )
   }

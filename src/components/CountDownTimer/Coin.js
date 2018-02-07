@@ -1,7 +1,12 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Coin extends Component {
+
+  static propTypes = {
+    handleLogUpdate: PropTypes.func.isRequired,
+  }
 
   state = {
     headTail: "tail",
@@ -11,9 +16,14 @@ export default class Coin extends Component {
   onCoinClick = () => {
     const { flips } = this.state;
     const result = Math.floor( Math.random()*2 + 1);
-
-    return result === 1 ? this.setState({ headTail: "tail", flips: flips + 1 }) 
-                        : this.setState({ headTail: "head", flips: flips + 1 });
+    
+    if(result === 1) {
+      this.props.handleLogUpdate( "Coin flipped to tails" );
+      this.setState({ headTail: "tail", flips: flips + 1 });
+    } else {
+      this.props.handleLogUpdate( "coin flipped to heads" );
+      this.setState({ headTail: "head", flips: flips + 1 });
+    }
   }
   
 
