@@ -65,8 +65,10 @@ Keeps track of actions and logs them in the view log. You can view the Log by cl
 - Undo button clicks
 
 ## Future Features/Fixes
-- Refactor/review entire code
-- Refactor and clean CSS to increase maintanability
+Currently, this application is in process of a re-design. Refactoring and cleaning is in progress, will be updated soon. Version 1.0 is still available from the specified link above, version 2.0 will be released soon! 
+
+
+
 
 ## Built With
 - React.js
