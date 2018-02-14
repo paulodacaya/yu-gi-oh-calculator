@@ -1,4 +1,5 @@
-![yugioh_logo](https://user-images.githubusercontent.com/29850088/34853219-b1085ea8-f786-11e7-87e5-b92f86849ff2.png)
+<img width="383" alt="yu gi oh calcualtor title" src="https://user-images.githubusercontent.com/29850088/36194454-cfa55c16-11bd-11e8-9120-37e3c3dec4e6.png">
+
 
 # yu-gi-oh-calculator
 An application that makes it easier for yu-gi-oh trading card game dueling. This was created to give Yu-Gi-Oh duelist and enjoyable yet practical experience while dueiling.
@@ -16,7 +17,7 @@ Please visit the following link where the application is hosted, VERSION 2 is no
 ## How To Use Application 
 You will initially be greeted with and display card that advices to input two duelist names. Hit Enter or click 'Go' to move to dueling UI.
 
-![card](https://user-images.githubusercontent.com/29850088/34853506-34e3c1c6-f788-11e7-90ef-021dfff5475b.gif)
+![intro](https://user-images.githubusercontent.com/29850088/36197712-a0913c96-11c8-11e8-823f-261a73d3a936.gif)
 
 In the Dueling UI, you have the following tabs:
 - Dueling: The Dueiling UI.
@@ -26,8 +27,7 @@ In the Dueling UI, you have the following tabs:
 ### Usage
 #### Dynamically edit name
 Double click on player name to change players name, hit 'Enter' on keyboard or click green 'OK' to complete.
-
-![edit-names](https://user-images.githubusercontent.com/29850088/34854375-83101c64-f78d-11e7-99d7-b50cd42f7f95.gif)
+![edit_name](https://user-images.githubusercontent.com/29850088/36197271-743baa38-11c7-11e8-927d-c1acbb27d59a.gif)
 
 #### Calculate Life Points
 When "CALCULATE" button is clicked, a calculator will pop up where you can make calcualtions towards your life points. 
@@ -36,7 +36,7 @@ For **single digit calculations**, initialize the calculation with a minus(-) or
 
 Example: -500 or -800
 
-![single-digit](https://user-images.githubusercontent.com/29850088/34855688-2b46b65c-f795-11e7-8b9b-89d136ef1d96.gif)
+![calculate](https://user-images.githubusercontent.com/29850088/36197522-1762683c-11c8-11e8-90c2-9edde88e3b55.gif)
 
 Though simple calculations are great, you can expand on this by writing equations where this benefits most. 
 
@@ -48,19 +48,23 @@ Example:
 - -(2400-1750), the difference between two monsters.
 - -(2*2100+250-3000), calculate monster gain in spell/field card effects minus monster ATK damage.
 
-![calculate-equation](https://user-images.githubusercontent.com/29850088/34855977-d549b2fc-f796-11e7-8506-b17d5c5ab2d3.gif)
-
 #### Undo Previous Calculation
 Click on undo button that will undo the most recent calculation, cannot undo further calculations.
 
+![undo](https://user-images.githubusercontent.com/29850088/36197168-3688bf82-11c7-11e8-9d13-a57ac6fd06eb.gif)
+
 #### Roll the Dice/Flip a Coin
 Pretty straight forwards, just simply click on the dice to roll it or click on the coin to reveal heads or tails.
+
+![coin-die](https://user-images.githubusercontent.com/29850088/36197579-453555da-11c8-11e8-8da4-fd7a109de97e.gif)
 
 #### Countdown timer
 By default, Yu-Gi-Oh duels should go for 40 minutes, so that is the default timer. Features include:
 - Changing the intial timer by clicking on the '+' or "-" icon and it will change by 1 minute depending on what you click.
 - Start/Stop - start or stop the timer.
 - Reset - It will reset back to default timer (40 minutes).
+
+![timer](https://user-images.githubusercontent.com/29850088/36197656-7dbb9108-11c8-11e8-956c-28196ef3cc13.gif)
 
 #### Action log
 Keeps track of actions and logs them in the view log. You can view the Log by clicking on the "show log" button on the bottom right of the screen. The log tracks the following actions:
@@ -69,8 +73,12 @@ Keeps track of actions and logs them in the view log. You can view the Log by cl
 - Duelist who has lost
 - Undo button clicks
 
+![log](https://user-images.githubusercontent.com/29850088/36197763-d27e7a0c-11c8-11e8-99c5-f2826491fd05.gif)
+
+
 ## Future Features/Fixes
-- Comming Soon.
+- editable initial lifepoints
+- token system
 
 ## Built With
 - React.js
