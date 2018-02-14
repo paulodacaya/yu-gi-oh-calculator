@@ -4,8 +4,14 @@
 An application that makes it easier for yu-gi-oh trading card game dueling. This was created to give Yu-Gi-Oh duelist and enjoyable yet practical experience while dueiling.
 
 ## Getting Started
-Please visit the following link where the application is hosted:
+Please visit the following link where the application is hosted, VERSION 2 is now LIVE:
 [Yu-Gi-Oh Calculator](http://paulodacaya.xyz/yu-gi-oh-calculator/). Enjoy!
+
+## Reason for remake/redesign in VERSION 2
+- was not appealing in smaller devices
+- redesigned for a more mobile friendly experience
+- cluttered screen space
+- unique design
 
 ## How To Use Application 
 You will initially be greeted with and display card that advices to input two duelist names. Hit Enter or click 'Go' to move to dueling UI.
@@ -59,16 +65,12 @@ By default, Yu-Gi-Oh duels should go for 40 minutes, so that is the default time
 #### Action log
 Keeps track of actions and logs them in the view log. You can view the Log by clicking on the "show log" button on the bottom right of the screen. The log tracks the following actions:
 - Calculated differences
-- Dice roll number
 - Coin Toss value
 - Duelist who has lost
 - Undo button clicks
 
 ## Future Features/Fixes
-Currently, this application is in process of a re-design. Refactoring and cleaning is in progress, will be updated soon. Version 1.0 is still available from the specified link above, version 2.0 will be released soon! 
-
-
-
+- Comming Soon.
 
 ## Built With
 - React.js
