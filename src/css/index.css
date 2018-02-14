@@ -1,39 +1,90 @@
-/* ===================================================== 
-Import CSS files
-===================================================== */
+/* This CSS style sheets is structured 
+around BEM — Block Element Modifier */
+
+/*--------  import CSS style sheet  ---------*/
 @import url('./config.css');
 
-/* ===================================================== 
-Web fonts
-===================================================== */
-@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Roboto+Mono:700');
+/*----------  import google fonts  ----------*/
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One|Open+Sans:400,400i,600,700');
 
-/* ===================================================== 
-HTML Tag Styles
-===================================================== */
+
+/*=============================================
+=                   BASE                      =
+=============================================*/
 * {
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Didact Gothic', sans-serif;
-  font-size: 16px;
+html {
+  background: var(--gallery-grey);                            
+}
 
-  background: url("../assets/hexgrey-bg.jpg") no-repeat center top,
-              var(--grey);
+body {
+  font-family: 'Fugaz One', cursive;
+  font-size: 16px;
+  line-height: 1;
+}
+button {
+  font-family: inherit;
+  color: white;
+}
+
+h1, button, li, input {
+  text-transform: uppercase;
+  color: white;
+}
+
+p, input {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 5.2rem;
+  color: var(--bright-sun); 
+  text-shadow: 0 -1px 0 #ffbf37, 
+               0 1px 0 #080808, 
+               0 2px 0 #000, 
+               0 3px 0 #020001, 
+               0 4px 0 #120107, 
+               0 5px 0 #22030e, 
+               0 6px 0 #310415, 
+               0 7px 0 #41051b, 
+               0 8px 0 #510622, 
+               0 9px 0 #610828, 
+               0 10px 0 #70092f, 
+               0 11px 0 #800a36, 
+               0 12px 0 #900b3c, 
+               0 13px 0 #a00d43, 
+               0 14px 0 #af0e49, 
+               0 15px 0 #bf0f50;
 }
 
 h2 {
-  font-size: 1.4em;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
-
+h3 {
+  font-size: 2em;
+}
 h4 {
-  font-size: var(--lp-fontsize);
+  text-transform: uppercase;
 }
-
+h6 {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 1em;
+  text-transform: uppercase;
+}
 a {
   text-decoration: none;
   color: inherit;
+}
+p {
+  line-height: 1.25;
+}
+
+li {
+  font-size: 1rem;
 }
 
 strong {
@@ -41,793 +92,650 @@ strong {
 }
 
 img {
-  height: 100px;
+  height: 55px;
+  cursor: pointer;
+}
+
+hr {
+  margin-top: 1em;
 }
 
 button {
   display: block;
   margin: 0 auto;
+  cursor: pointer;
+  font-size: 1.5rem;
+  letter-spacing: 2px; 
+
+  background-color: transparent;
+  border: none;
 }
 
-/* ===================================================== 
-Component Styles
-===================================================== */
 
-/* ========================== 
-Intro Card
-============================= */
-#root {
-  height: 100vh;
-}
-
-.container {
-  color: var(--white, white);
-  font-size: 1.2em;
-
-  background-color: var(--black);
-  border-radius: 1em;
-  width: 60%;
-  min-width: 380px;
-  max-width: 550px;
-  height: 400px; 
-  text-align: center;
-  
+/*-----------------  helpers ----------------*/
+.wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 10px 6px -6px #777;
+  width: 100%;
 }
-
-.card-header {
-  margin-top: 1.2em;
+.container {
+  width: 100%;
 }
-
-.card-header h2 {
-  margin-bottom: 2.5em;
+.parallelogram::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transform: skewX(-20deg)
 }
-
-#players-input-form {
-  margin-top: 1em;
-  font-family: 'Didact Gothic', sans-serif;
-}
-#players-input-form input[type=text] {
-  margin-bottom: 2em;
-  height: 4em;
-  width: 12em;
-  border: solid 2px var(--yellow);
-  border-radius: 2em;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 400;
-}
-
-#players-input-form input[type=text]::-webkit-input-placeholder {
-  font-size: 1.3em;
-}
-
-#players-input-form input[type=text]:focus {
-  background-color: var(--lightyellow);
-}
-
-#players-input-form input[type=text]:first-child {
-  margin-right: 2em;
-}
-
-#players-input-form button {
-  padding: 0.2em 2.2em;
-  border-radius: 0.6em;
-  background-color: transparent;
-  border: 2px solid var(--yellow);
-  color: var(--yellow);
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 1.2em;
-  
-  transition: color 500ms ease-in-out,
-              box-shadow 500ms ease-in-out;
-  
-}
-
-#players-input-form button:hover,
-#players-input-form button:focus {
-  color: var(--white, white);
-  box-shadow: 0 0 40px 40px var(--yellow) inset;
-  
-}
-
-/* ========================== 
-Header
-============================= */
-
-.duel-container header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  background-color: var(--black);
-  color: var(--yellow);
-  font-size: 0.7em;
-  text-transform: capitalize;
-  height: var(--header-height);
-}
-
-.duel-container header img {
-  margin-left: 2em;
-  height: var(--image-height);
-}
-
-header ul {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-right: 1.2em;
-}
-
-header ul li {
-  border: 1px solid var(--yellow);
-  border-radius: 0.6em;
-  cursor: pointer;
-  padding: 0.3em 0em;
-}
-
-header ul li:nth-child(1),
-header ul li:nth-child(2) {
-  margin-bottom: 0.1em;
-}
-
-header ul li:hover,
-header ul li:focus {
-  color: var(--white);
-  background-color: var(--yellow);
-}
-
-.duel-container a {
-  padding: 2.6px 2px;
+.parallelogram-blue::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  border: 3px solid var(--biscay);
+  background-color: var(--biscay-light);
+  transform: skewX(-10deg);
 }
 
 .active {
-  color: var(--white);
-  background-color: var(--yellow);
-  border-radius: inherit;
+  color: var(--bright-sun);
+}
+/*=============================================
+=                   COMMON                    =
+=============================================*/
+/*----------  introduction section ----------*/
+.intro {
+  padding: 1em 0;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.intro::before {
+  background: var(--alto);
+}
+.intro__title {
+  margin-bottom: 3em;
+}
+.intro__title--sub {
+  font-size: 3rem;
+}
+.intro > h2, .intro > p, 
+.intro__form > fieldset {
+  margin-bottom: 1em;
+}
+.intro__form--input {
+  padding: 0.8em 1.2em;
+  width: 150px;
+  border: 2px solid var(--shark);
+  border-top: none; border-left: none; border-right: none;
+  background-color: rgba(30, 35, 38, 0.4);
+  outline: none;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+.intro__form--input.first {
+  margin-right: 1em;
+}
+.intro__form--submitbtn {
+  color: white;
+  padding: 0 1em;
+  border: 1px solid var(--shark);
+  border: 2px solid var(--shark);
+  background-color: var(--shark-light);
+}
+
+/*-------------  dueling header -------------*/
+.header {
+  text-align: center;
+  background-color: var(--alto);
+  padding: 0.5em 0 1em 0;
+  margin-bottom: 3em;
+
+  position: relative;
+}
+.header > h1 {
+  font-size: 2rem;
+}
+.header__burger {
+  position: absolute;
+  top: 50%; 
+  left: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.header__burger--inner {
+  position: relative;
+  height: 22px;
+  width: 30px;
+}
+.header__burger--inner > span {
+  position: absolute;
+  display: block;
+  height: 4px;
+  width: 30px;
+  background: var(--bright-sun);
+}
+.header__burger--inner .top { top: 0; }
+.header__burger--inner .middle { top: 9px; }
+.header__burger--inner .bottom { bottom: 0; }
+.header__nav {
+  position: absolute;
+  top: 0; left: 8px;
+}
+.header_nav--listItem {
+  margin-bottom: 0.2em;
+  padding: 0.8em 1em;
+  color: black;
+  position: relative;
+  z-index: 1;
+}
+.header_nav--listItem::before {
+  border: 3px solid var(--bright-sun);
+  background-color: var(--bright-sun-light);
+}
+.header__nav--close {
+  display: block;
+  cursor: pointer;
+  color: var(--bright-sun);
+  font-weight: 700;
+  text-align: left;
+  font-size: 3em;
+  padding: 4px 0;
+  padding-left: 12px; 
+}
+
+/*----------------  dueslists ---------------*/
+.duelboard {
+  color: white;
+}
+.duelists {
+  display: flex;
+  justify-content: space-between;
+}
+/*------------  dueslist name ---------------*/
+.duelist {
+  width: 100%;
+  overflow: hidden;
+}
+.duelist__name {
+  position: relative;
+
+  margin-bottom: 0.3em;
+  padding: 0.5em 0;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: var(--duelist-name-fontsize);
+  letter-spacing: 2px;
+
+  border: 3px solid var(--biscay);
+  border-left: none;
+  background-color: var(--biscay-light);
+}
+
+.duelist__name--input {
+  font-size: 1em;
+  background-color: var(--biscay);
+  border: none;
+  width: 85%; height: 100%;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.duelist:last-child {
+  margin-left: 0.5em;
+}
+.duelist:last-child .duelist__name {
+  border: 3px solid var(--jazzberry-jam);
+  border-right: none;
+  background-color: var(--jazzberry-jam-light);
+}
+.duelist:last-child .duelist__name--input {
+  background-color: var(--jazzberry-jam);
+}
+/*-------------  dueslist bar ---------------*/
+.duelist__bar {
+  
+  border: 3px solid var(--biscay);
+  border-bottom: none;
+  background: transparent;
+}
+.duelist__bar--lifepoints {
+  height: 0.5em;
+  width: 100%; 
+}
+
+.duelist:first-child > .duelist__bar {
+  border-left: none;
+}
+.duelist:first-child .duelist__bar--lifepoints {
+  background: repeating-linear-gradient(-45deg,
+                                        var(--biscay-light), var(--biscay-light) 5px,
+                                        var(--biscay-lighter) 0, var(--biscay-lighter) 10px);
+}
+
+.duelist:last-child > .duelist__bar { 
+  border-color: var(--jazzberry-jam);
+  border-right: none;
+  background-color: transparent;
+}
+.duelist:last-child .duelist__bar--lifepoints {
+  background: repeating-linear-gradient(45deg,
+                                        var(--jazzberry-jam-light), var(--jazzberry-jam-light) 5px,
+                                        var(--jazzberry-jam-lighter) 0, var(--jazzberry-jam-lighter) 10px);
+  margin-left: auto;
+}
+
+/*---------  dueslist lifepoints ------------*/
+.duelist__lifepoints {
+  position: relative;
+
+  margin-bottom: 0.5em;
+}
+.duelist__lifepoints::before {
+  right: 5px; left: -10px;
+}
+
+.duelist__lifepoints--wrapper {
+  padding: 0.8em 0;
+  position: relative;
+  text-align: center;
+}
+.duelist__lifepoints--wrapper > h2 {
+  position: absolute;
+  top: 10px; left: 10px;
+}
+.duelist__lifepoints--wrapper > h3 {
+  font-size: var(--duelist-lifepoints-fontsize);
 }
 
 
+.duelist:last-child .duelist__lifepoints::before {
+  transform: skewX(10deg);
+  left: 5px; right: -10px;
+  border: 3px solid var(--jazzberry-jam);
+  background-color: var(--jazzberry-jam-light);
+}
+.duelist:last-child .duelist__lifepoints--wrapper > h2 {
+  left: unset; right: 10px;
+}
 
-/* ========================== 
-DuelBoard/Players
-============================= */
-
-.duel-board {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 700;
-
+/*----  dueslist undo/calcualate buttons ----*/
+.duelist__btns {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+}
+.duelist__btns > button {
+  position: relative;
+  width: 100%;
+  color: inherit;
+  text-align: center;
+  font-size: 1em;
+  padding: 0.5em 0;
+}
+.duelist__btns--undo::before {
+  left: -10px; right: 10px;
+}
+.duelist__btns--calculate::before {
+  right: 15px; left: 0px; 
+}
+
+.duelist:last-child .duelist__btns {
+  flex-direction: row-reverse;
+}
+
+.duelist:last-child .duelist__btns > button::before {
+  transform: skewX(10deg);
+  border: 3px solid var(--jazzberry-jam);
+  background-color: var(--jazzberry-jam-light);
+}
+.duelist:last-child .duelist__btns--calculate::before {
+  left: 15px; right: 0px; 
+}
+.duelist:last-child .duelist__btns--undo::before {
+  right: -10px; left: 10px;
+}
+
+/*------------------  banner ----------------*/
+.banner {
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0.5em 0;
+  text-align: center;
+  font-size: 1.5em;
+}
+.banner__wincount, .banner__clock {
+  width: 100%;
+  padding: 0.5em;
+  background-color: greenyellow;
+  cursor: pointer;
+}
+.banner__clock {
+  margin: 0 0.5em;
+  border: 3px solid var(--shark);
+  background-color: var(--shark-light);
+}
+.banner__wincount {
+  border: 3px solid var(--biscay);
+  background-color: var(--biscay-light);
+}
 
-  padding-top: 8em; /* remove header problem */
-  max-width: var(--score-boardmw);
-  margin: 0 auto;
-  height: calc(100vh - var(--header-height));
+.banner__wincount:first-child {
+  border-left: none;
 }
-.duel-board span {
-  font-size: 5em;
-}
-.vs-image {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 6em;
+.banner__wincount:last-child {
+  border: 3px solid var(--jazzberry-jam);
+  border-right: none;
+  background-color: var(--jazzberry-jam-light);
 }
 
-.player span {
-  background: url("../assets/name-plate.svg") no-repeat;
-  background-size: cover;
+/*----------------  features ----------------*/
+.features {
+  padding: 1em 0;
+  text-align: center;
+  margin: 1em 0;
+}
+
+.features__arrow {
   display: block;
-  position: relative;
-  height: var(--nameplate-h);
+  width: 50px; 
+  height: 50px;
+  margin: 0 auto;
+  line-height: 2;
+  font-size: 1.6em;
   cursor: pointer;
-  
-  text-transform: uppercase;
-  text-align: center;
 
-  font-size: var(--player-fontsize);
-  line-height: var(--playertag-lh);
+  background-color: var(--shark-light);
+  border: 3px solid var(--shark);
+  border-radius: 100%;
 }
-.player input[type=text] {
-  height: 60%;
-  width: 50%;
-  transform: translateY(-0.45rem);
-  background: transparent;
-
-  font-size: 0.5em;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 400;
+.features__arrow.up {
+  transform: rotate(180deg);
 }
-.change-name-btn {
-  position: absolute;
-  top: 33%;
-  right: 11%;
-
-  text-transform: uppercase;
-  color: var(--white);
-  cursor: pointer;
-  letter-spacing: 1px;
-  background-color: var(--lightgreen);
-  border: solid 1px var(--green);
-}
-
-.scores {
-  display: flex; 
-  align-items: center;
-  margin-top: 20px; /* change */
-
-}
-.scores img {
-  height: 1.5em;
-  cursor: pointer;
-}
-.scores p {
-  font-size: 2em;
-  text-transform: uppercase;
-  align-self: flex-start;
-}
-.scores h4 {
-  text-align: right;
-  width: var(--lp-width);
-}
-
-.lp-btn {
-  margin-top: 1em;
+.features__box {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  margin-top: 1.5em;
+  padding: 0.5em 0;
+  box-shadow: inset 0 3px 4px rgba(206, 206, 206, 0.5),
+              inset 0 -3px 4px rgba(206, 206, 206, 0.5);
+  background: linear-gradient(var(--alto), var(--gallery-grey));
 }
-.lp-btn {
-  text-transform: uppercase;
-  color: var(--white);
+
+
+/*---------------  calculator ---------------*/
+.calculator {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%; height: 100%;
+  background-color: var(--shark);
+}
+.calculator__inputscreen {
+  background-color: var(--shark);
+  width: 100%;
+  height: 150px;
+  border: none;
+  text-align: right;
   padding: 1em;
-  font-size: 0.7em;
-  cursor: pointer;
-  letter-spacing: 1px;
-
-  transition: 150ms linear;
+  font-size: 1.5em;
 }
-.lp-btn {
-  background-color: var(--lightorange);
-  border: solid 1px var(--orange);
-  box-shadow: 0 1px 0 var(--orange),
-              1px 2px 3px var(--orange);
-}
-
-#winCounter {
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  transform: translateX(-50%);
-
-  display: none;
-  text-align: center;
-  line-height: 1.5;
- 
-  width: 252px; /* 263 px */
-  height: 100px;
-  background: url('../assets/score-plate.svg') no-repeat;
-  background: cover;
-  font-size: 0.8em;
-}
-
-#winCounter span:first-child {
-  margin-right: 1em;
-  padding-left: 10px; /* centres numbers i background */
-}
-
-/* ========================== 
-Dueling Calculator 
-============================= */
-#calculator {
-  width: 300px;
-  height: 400px;
-}
-#calculator input[type=text] {
-  border: none;
-  height: 100px;
-  width: 100%;
-  text-align: center;
-  letter-spacing: 2px;
-  font-size: 1.2em;
-  
-}
-#calculator .buttons {
-  height: calc(100% - 100px);
+.calculator__btns {
+  height: 350px;
   display: grid;
+  grid-gap: 5px;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6. 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
-.buttons button {
-  color: var(--grey);
-  width: calc(300px / 4); /* container width / 4 */
-  border: 1px solid rgba( 238, 238, 238, .2);
+.calculator__btns > button {
+  font-size: 1rem;
+}
+.calculator__btns .sym {
+  background-color: var(--shark-light);
+  border-radius: 100%;
+}
+.calculator__btns .sym,
+.calculator__btns .num {
+  width: 50px; height: 50px;
+}
+
+/*-------------------  dice -----------------*/
+.dice {
   cursor: pointer;
 }
-.sym {
-  background-color: var(--lightred);
-}
-.num {
-  background-color: var(--calc-black);
-}
-.sub {
-  background-color: var(--lightgreen);
-}
 
-.close {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  
-  width: 25px;
-  height: 25px;
-  background-color: rgba( 238, 238, 238, .5);
-  border: none;
-  border-radius: 0 0 0 0.3em;
-
-  color: var(--calc-black);
-  cursor: pointer;
+/*-------------  timer settings -------------*/
+.timersettings {
+  /* background-color: var(--shark); */
+  color: white;
+  padding: 0.5em;
+}
+.timersettings__clock {
+  text-align: center;
+  font-size: 3em;
+  padding: 0.5em;
+}
+.timersettings__controls {
+  font-family: 'Open Sans', sans-serif;
   
 }
+.timersettings__controls--plusminus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.timersettings__controls--plusminus > button {
+  background-color: var(--shark-light);
+  border-radius: 100%;
+  height: 50px; width: 50px;
+}
+.timersettings__controls--startstop,
+.timersettings__controls--reset {
+  margin-bottom: 0.5em;
+  background-color: var(--shark-light);
+  border-radius: 100px;
+  padding: 0.2em 1em;
+}
 
-/* ========================== 
-Reset Card (displays winner)
-============================= */
-#reset-card {
-  width: 100%;
+/*-------------------  log ------------------*/
+.log {
+  color: white;
   height: 100%;
-  background-color: var(--black);
-  color: var(--white);
+  padding: 1em;
+}
+.log__list > li {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: lowercase;
+  margin-bottom: 0.8em;
+}
+
+/*---------------  winner modal -------------*/
+.winnermodal {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
   text-align: center;
   text-transform: uppercase;
-}
+  overflow: hidden;
 
-#reset-card > div {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
 }
-
-#reset-card h2 {
-  font-size: 2em;
-  color: var(--red);
-  margin-bottom: 0.2em;
+.winnermodal > h1 {
+  font-family: 'Fugaz One', cursive;
+  margin: 1em 0;
 }
-
-#reset-card h3 {
-  font-size: 1em;
-}
-
-#reset-card h1 {
-  font-size: var(--winner-fontsize);
-  margin: 1.2em 0;
-}
-
-#reset-card .buttons {
-  font-size: 0.7em;
-  width: 90%;
-  max-width: 700px;
-  margin: 0 auto;
-
+.winnermodal__btns {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-
-#reset-card button {
-  padding: 1em 0;
-  width: 80%;
-  border-radius: 0.6em;
-  background-color: transparent;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 1.2em;
+.winnermodal__btns > button {
+  margin: 1em;
+  padding: 0.2em 0.5em;
+  background-color: var(--shark-light);
+  border-radius: 100px;
 }
 
-#reset-card button:first-child {
-  color: var(--white);
-  background-color: var(--mint);
-  border: 2px solid transparent;
-  margin-bottom: 2em;
-}
-#reset-card button:first-child:hover {
-  border: 2px solid var(--mint);
-  background-color: transparent;
-  color: var(--mint);
-}
+/*-------------------  coin -----------------*/
+.coin__wrapper {
+  height: 55px; width: 55px;
+ 
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3em;
 
-#reset-card button:last-child {
-  color: var(--white);
-  background-color: var(--blue);
-  border: 2px solid transparent;
-}
-#reset-card button:last-child:hover {
-  border: 2px solid var(--blue);
-  background-color: transparent;
-  color: var(--blue);
-}
-
-
-/* ========================== 
-Official RuleBook
-============================= */
-.rulebook-container {
-  padding-top: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.rulebook-page {  
-  margin-bottom: 0.5em;
-}
-
-/* ========================== 
-App Guide (How to use App)
-============================= */
-
-.appguide {
-  padding: 1em;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.appguide h1,
-.appguide h2 {
-  text-align: center;
-  margin-bottom: 0.5em;
-}
-.appguide h1 {
-  font-size: 1.5em;
-  font-weight: 700;
-  text-transform: uppercase; 
-}
-.appguide h2 {
-  font-size: 1.2em;
-}
-.appguide ul > li,
-.appguide img {
-  margin-bottom: 1em;
-}
-.appguide ul > li {
-  line-height: 1.3em;
-}
-.appguide span {
-  text-transform: capitalize;
-  font-weight: 700;
-  color: var(--red);
-}
-.appguide img {
-  display: block;
-  margin: 0 auto 2em;
-  border: 2px solid var(--black);
-  border-radius: 0.6em;
-}
-
-.gif-1 {
-  width: 356px;
-  height: 260px;
-} 
-.gif-2 {
-  width: 346px;
-  height: 510px;
-} 
-
-/* ========================== 
-Count Down Timer
-============================= */
-.countdowntimer {
-  position: absolute;
-  top: calc(var(--header-height) - 20px);
-  left: 50%;  
-  transform: translateX(-50%);
-}
-.clock {
-  background-color: var(--background-grey);
-  border: 5px solid var(--background-border);
-  
-  padding: 0.25em 0.5em;
-  
-  position: relative; /* for dice */
-}
-.clock span {
-  font-size: 2.5em;
-}
-
-
-.controls {
-  display: flex;
-  justify-content: space-between;
-}
-.controls button {
-  text-transform: uppercase;
-  border: 1px solid rgba( 238, 238, 238, .2);
-  padding: 0;
-  font-weight: 700;
-  cursor: pointer; 
-}
-.plus-minus,
-.reset {
-  background-color: var(--lightred);
-  flex-grow: 1;
-}
-.start-stop {
-  background-color: var(--lightgreen);
-  flex-grow: 2;
-}
-
-.plus-minus button {
-  width: 100%;
-  height: 50%;
-  background-color: var(--calc-black);
-  color: var(--white);
-  font-size: 1em;
-}
-
-/* ========================== 
-Dice Styles
-============================= */
-.dice {
-  position: absolute;
-  top: 10%;
-  right: -80%;
-  cursor: pointer;
-}
-/* ========================== 
-Coin Styles
-============================= */
-.coin {
-  position: absolute;
-  top: 30%;
-  left: -70%;
-  cursor: pointer;
-
-  background-color: var(--background-grey);
-  border: 2px solid var(--background-border);
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.coin > span {
-  text-transform: uppercase;
-  font-size: 1em;
-}
-
-.coin-display {
-  top: 52.5%;
-  left: -63%;
-  transform: scale(1); 
-  width: 40px;
-  height: 40px;
-  text-transform: uppercase;
-  z-index: -1;
-  font-size: 0.8em;
-
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-
-/* ========================== 
-Log
-============================= */
-.log-container {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-}
-.log-container button {
-  background-color: var(--background-grey);
-  border: 2px solid var(--background-border);
-  padding: 1em 2em;
-  font-weight: 700;
-  text-transform: uppercase; 
-}
-
-.log {
   position: relative;
-  font-size: 0.8em;
-  font-weight: normal;
-  letter-spacing: 1;
-  line-height: 2;
-  overflow: auto;
-  width: 100vw; 
-  height: 35vh;
-  background-color: var(--grey);
-  border: 2px solid var(--background-border);
-  padding: 1em;
-}
-.log > span {
-  position: absolute;
-  top: -7px;
-  right: 10px;
-  
   cursor: pointer;
-  font-size: 2em;
 }
-
-
-
-
-
-/* ========================== 
-Not Found Page Styles
-============================= */
-
-.NotFound {
-  height: 80%;
-  text-align: center;
+.coin__shape, .coin__flip {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
+  line-height: 2.6;
+  
+  height: 55px; width: 55px;
+
+  background-color: var(--shark-light);
+  border: 1px solid var(--shark);
+  border-radius: 100%;
 }
-.NotFound img {
-  margin-top: 20px;
-  height: 50%;
-}
-.NotFound h1 {
-  text-transform: uppercase;
-  font-size: 2em;
-  font-weight: 700;
-  margin: 1em 0;
-} 
-.NotFound h2 {
-  text-transform: capitalize;
-  color: var(--red);
-  margin: 1em 0;
-}
-.NotFound a {
-  font-weight: 700;
-  color: var(--green);
+.coin__flip {
+  opacity: 0;
+  transition: all 0.5s;
+  display: block;
 }
 
-
-
-/* ===================================================== 
-ReactCSSTransitionGroup Styles
-===================================================== */
-.header-appear {
-  transform: translateY(-100%);
-}
-
-.header-appear.header-appear-active {
-  transform: translateY(0);
-  transition: transform 350ms ease-in;
-}
-
-.duelboard-appear {
-  opacity: 0.5;
-}
-
-.duelboard-appear.duelboard-appear-active {
+.coin-enter {
+  transition: all .2s;
+  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
-  transition: opacity 500ms ease-in;
 }
-
-.ReactModal__Overlay {
-  transform: translateY(100%);
+.coin-enter-active {
+  transform: translate(-50%, -50%) scale(1.3);
 }
-
-.ReactModal__Overlay--after-open {
-  transform: translateY(0);
-  transition: transform 500ms cubic-bezier(.38,.01,.07,1.33);
-}
-
-.coin-flip-enter {
-  transition: all 0.2s;
-  transform: scale(1); 
-  opacity: 1;
-  z-index: 1;
-}
-.coin-flip-enter.coin-flip-enter-active {
-  transform: scale(2.5); 
-}
-.coin-flip-leave {
+.coin-leave-active {
   display: none;
 }
 
+/*----------------  404 page ----------------*/
+.notfound {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  padding: 1em;
+}
+.notfound::before {
+  background-color: var(--alto);
+}
+.notfound__image,
+.notfound__content > h2,
+.notfound__content > p {
+  margin-bottom: 1em;
+}
 
+.notfound__image {
+  height: 5em; width: 5em;
+}
+.notfound__content > p {
+  text-transform: capitalize;
+}
+.notfound__content a {
+  font-weight: 700;
+  text-decoration: underline;
+  color: var(--biscay);
+}
 
+/*-------------  how to use app -------------*/
+.guide {
+  padding: 1em 1.5em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.guide__content {
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+}
+.guide__content--phrase {
+  margin-bottom: 1em;
+  text-align: center;
+}
 
+.guide > h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+  color: var(--shark);
+}
+.guide__content span {
+  text-decoration: underline;
+}
+.guide__content p {
+  margin-bottom: 0.4em;
+}
+.guide__content > section > h4 {
+  text-decoration: underline;
+  margin: 1em 0;
+}
+.guide__content > section > img {
+  width: 100%;
+  max-width: 340px;
+  height: 100%;
+  border: 1px solid var(--shark);
+  margin: 1em 0;
+}
 
-/* ===================================================== 
-Media Queries
-===================================================== */
+/*----------------  rulebook ----------------*/
+.rulebook {
+  width: 100%;
+  padding: 0 1em;
+  margin-top: 1em;
+}
+.rulebook__page {
+  margin: 0 auto 1em;
+}
+.rulebook__link {
+  margin: 1em;
+  text-transform: uppercase;
+}
+/*-------------  dueling header -------------*/
+
+/*=============================================
+=                 MEDIA QUERIES               =
+=============================================*/
 
 @media (min-width: 500px) {
   :root {
-    --winner-fontsize: 5em;
-  }
-
-  header ul {
-    flex-direction: row;
-    align-items: center;
-
-    font-size: 1.24em;
-  } 
-  header ul li {
-    margin-left: 0.4em;
-  }
-  #reset-card .buttons {
-    flex-direction: row;
-  }
-  #reset-card button:first-child {
-    margin: 0 3em 0 0;
+    --duelist-name-fontsize: 1.8rem;
+    --duelist-lifepoints-fontsize: 2.2rem;
   }
 }
-
 @media (min-width: 800px) {
   :root {
-    --image-height: 60px;
-    --header-height: 8em;
-    --winner-fontsize: 6.5em;
-  }
-  header ul  {
-    font-size: 1.5em;
-  }
-  .vs-image {
-    display: block;
-  }
-  .duel-board {
-    flex-direction: row;
-  }
-  .appguide {
-    display: flex;
-    max-width: 1000px;
-  }
-  .appguide {
-    flex: 1;
-  }
-  .appguide > div:first-child {
-    margin-right: 2em;
-  }
-  #winCounter {
-    display: block;
-  }
-  .clock > span {
-    font-size: 4em;
+    --duelist-name-fontsize: 2rem;
+    --duelist-lifepoints-fontsize: 2.6rem;
   }
 }
-
-
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   :root {
-    --image-height: 70px;
-    --score-boardmw: 1000px;
-    --player-fontsize: 2.5em;
-    --lp-fontsize: 8em;
-    --lp-width: 307px;
-    --nameplate-h: 70px;
-    --playertag-lh: 70px;
+    --duelist-name-fontsize: 2.2rem;
+    --duelist-lifepoints-fontsize: 3.0rem;
   }
 }
-
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   :root {
-    --score-boardmw: 1200px;
-    --player-fontsize: 3.0em;
-    --lp-fontsize: 9em;
-    --lp-width: 346px;
-    --nameplate-h: 78px;
-    --playertag-lh: 75px;
+    --duelist-name-fontsize: 2.4rem;
+    --duelist-lifepoints-fontsize: 3.4rem;
   }
 }

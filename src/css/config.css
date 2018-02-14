@@ -1,50 +1,36 @@
-/* ===================================================== 
-CSS variables
-===================================================== */
+/*=============================================
+=              css variables                  =
+=============================================*/
 
 :root {
-	--image-height: 50px;
-	--header-height: 7em;
+/*--------------  Color scheme  -------------*/
+	--peach: #ffeaad;
+	--corvette: #fccda3;	
 
-	--score-boardmw: 800px;
-	--player-fontsize: 2em;
-	--lp-fontsize: 6em;
-	--lp-width: 230px;
-	--nameplate-h: 56px;
-	--playertag-lh: 55px;
-	--winner-fontsize: 4em;
-	
-	/* colors */
-	--white: #fff;
-	
-	--black: #141414;
-	--calc-black: #1e2326;
-	
-	--grey: #eee;
-	--background-grey: #8d8f91;
-	--background-border: #4d4d4d;
-	
-	--yellow: #dbcc1b;
-	--lightyellow: #f0f0bf;
-	
-	--red: #da4453;
-	--lightred: #ed5565;
+	--bright-sun: #ffc448;
+	--bright-sun-light: #ffdf9d;
 
-	--orange: #e9573f;
-	--lightorange: #fc6e51;
+	--biscay: #183565;
+	--biscay-light: #2859aa;
+	--biscay-lighter: #5183d6;
 
-	--green: #8cc152;
-	--lightgreen: #a0d468;
+	--jazzberry-jam: #bf0f50;
+	--jazzberry-jam-light: #ef3479;
+	--jazzberry-jam-lighter: #f583ad;
+	--shark: #1e2326;
+	--shark-light: #434f55;
 
-	--blue: #3bafda;
-	--mint: #37bc9b;
-
+	--gallery-grey: #f0f0f0;
+	--alto: #dfdfdf;
+/*-----------------  helpers ----------------*/
+	--duelist-name-fontsize: 1.5rem;
+	--duelist-lifepoints-fontsize: 1.8rem;
 }
 
 
-/* ===================================================== 
-Eric Meyer's CSS reset
-===================================================== */
+/*=============================================
+=                  CSS reset                 =
+=============================================*/
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
