@@ -13,17 +13,17 @@ export default class Controls extends Component {
 
   render() {
     const renderStartStopButton = this.props.running ?
-    <button className="start-stop" onClick={ () => this.props.handleStop() } >stop</button> :
-    <button className="start-stop" onClick={ () => this.props.handleStart() } >start</button>;
+    <button className="timersettings__controls--startstop" onClick={ () => this.props.handleStop() } >stop</button> :
+    <button className="timersettings__controls--startstop" onClick={ () => this.props.handleStart() } >start</button>;
 
     return (
-      <div className="controls">
-        <div className="plus-minus">
+      <div className="timersettings__controls">
+        <div className="timersettings__controls--plusminus">
           <button value="+" onClick={ event => this.props.handlePlusMinus(event.target.value) }>&#43;</button>
           <button value="-" onClick={ event => this.props.handlePlusMinus(event.target.value) }>&minus;</button>
         </div>
         {renderStartStopButton}
-        <button className="reset" onClick={ () => this.props.handleReset() }>reset</button>
+        <button className="timersettings__controls--reset" onClick={ () => this.props.handleReset() }>reset</button>
       </div>
     )
   }

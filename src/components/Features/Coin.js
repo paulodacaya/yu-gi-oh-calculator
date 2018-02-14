@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -9,7 +9,7 @@ export default class Coin extends Component {
   }
 
   state = {
-    headTail: "tail",
+    headTail: "T",
     flips: 0,
   }
 
@@ -19,10 +19,10 @@ export default class Coin extends Component {
     
     if(result === 1) {
       this.props.handleLogUpdate( "Coin flipped to tails" );
-      this.setState({ headTail: "tail", flips: flips + 1 });
+      this.setState({ headTail: "T", flips: flips + 1 });
     } else {
       this.props.handleLogUpdate( "coin flipped to heads" );
-      this.setState({ headTail: "head", flips: flips + 1 });
+      this.setState({ headTail: "H", flips: flips + 1 });
     }
   }
   
@@ -31,15 +31,18 @@ export default class Coin extends Component {
     const { headTail } = this.state;
 
     return (
-      <Fragment>
-        <div className="coin" onClick={ () => this.onCoinClick() }>
-          <span>{headTail}</span>
-        </div>
+      <div className="coin__wrapper" onClick={ () => this.onCoinClick() }>
+        <span className="coin__shape">{headTail}</span>
 
-        <ReactCSSTransitionGroup component="div" transitionName="coin-flip" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-          <div key={this.state.flips} className="coin coin-display">{this.state.headTail}</div>
+
+        <ReactCSSTransitionGroup
+          component="div"
+          transitionName="coin"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500}>
+          <span key={this.state.flips} className="coin__flip">{headTail}</span>
         </ReactCSSTransitionGroup>
-      </Fragment>
+      </div>
     )
 
     

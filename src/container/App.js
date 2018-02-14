@@ -14,7 +14,6 @@ const initialState = {
   duelist2: "",
   winner: null,
   fireRedirect: false,
-  headerExists: false,
   displayResetCard: false,
 
   duelers: [
@@ -59,7 +58,6 @@ export default class App extends Component {
     })
   }
 
-  toggleHeaderExistsProperty = () => this.toggleProperty('headerExists'); //used for 404 page.
   toggleDisplayResetCardProperty = () => this.toggleProperty('displayResetCard'); 
   //-------------------------------------------------------------
   handlePlayerInput = event => {
@@ -113,7 +111,17 @@ export default class App extends Component {
   }
 
   toggleEditing = index => {
-    this.togglePlayerProperty('isEditing', index);
+    this.state.duelers.map( (duelist, i) => {
+      if(i === index) {
+        const { name } = duelist;
+        if(name.length > 0) {
+          this.togglePlayerProperty('isEditing', index);
+        }
+        return null;
+      }
+      return null;
+    })
+    
   }
   toggleCalcOpen = index => {
     this.togglePlayerProperty('calcIsOpen', index);
@@ -254,8 +262,6 @@ export default class App extends Component {
             }
           }
           
-          
-
           return {
             ...duelist,
             calcIsOpen: false,
@@ -354,8 +360,6 @@ export default class App extends Component {
                   onCalcDelBtn={this.onCalcDelBtn}
                   CalcSubmitHandler={this.CalcSubmitHandler}
                   onUndoBtnClick={this.onUndoBtnClick}
-                  headerExists={this.state.headerExists}
-                  toggleHeaderExistsProperty={this.toggleHeaderExistsProperty}
                   player1LostCount={this.state.duelers[0].lostCount}
                   player2LostCount={this.state.duelers[1].lostCount}
                   winner={this.state.winner}
@@ -365,10 +369,8 @@ export default class App extends Component {
                   logs={this.state.logs}
                   onLogUpdate={this.onLogUpdate} />
               } />
-              
-              <Route render={ () => 
-                <NotFound headerExists={this.state.headerExists} /> 
-              } />
+              f
+              <Route component={NotFound} /> 
             </Switch>
         </Fragment>
       </BrowserRouter>

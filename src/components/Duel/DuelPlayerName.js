@@ -5,8 +5,9 @@ const DuelPlayerName = props => {
 
   if(props.isEditing) {
     return (
-      <span>
+      <div className="duelist__name">
         <input 
+          className="duelist__name--input"
           type="text"
           value={props.children}
           onChange={props.handleNameEdits}
@@ -17,14 +18,14 @@ const DuelPlayerName = props => {
           onClick={props.handleToggleEditing} >
           ok
         </button>
-      </span>
+      </div>
     )
   }
   
   return (
-    <span onDoubleClick={props.handleToggleEditing} >
+    <div className="duelist__name" onDoubleClick={props.handleToggleEditing} >
       {props.children}
-    </span>
+    </div>
   );
 }
 

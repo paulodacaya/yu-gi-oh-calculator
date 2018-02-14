@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 
-//component
-import Dice from './Dice';
-import Coin from './Coin';
-
 export default class Clock extends Component {
 
   static propTypes = {
     totalSeconds: PropTypes.number.isRequired,
-    onLogUpdate: PropTypes.func.isRequired,
   }
 
   formatSeconds = totalSeconds => {
     let seconds = totalSeconds%60;
-    let minutes = Math.floor(totalSeconds/60);
+    let minutes = Math.floor( totalSeconds/60 );
     
     if(seconds < 10) {
       seconds = `0${seconds}`;
@@ -30,15 +25,9 @@ export default class Clock extends Component {
 
   render() {
     const { totalSeconds } = this.props;
-
+    
     return (
-      <div className="clock">
-        <span>
-          {this.formatSeconds(totalSeconds)} 
-        </span>
-        <Coin handleLogUpdate={this.props.onLogUpdate} />
-        <Dice handleLogUpdate={this.props.onLogUpdate} />
-      </div>
-    )
+      <span>{this.formatSeconds( totalSeconds )}</span>
+    );
   }
 }

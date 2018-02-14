@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
 
@@ -8,19 +7,40 @@ import duelingAudio from '../../assets/its-time-to-duel.mp3'
 
 export default class Header extends Component {
 
-  static propTypes = {
-    toggleHeaderExistsProperty:  PropTypes.func.isRequired,
+  state = {
+    isNavOpen: false,
   }
 
-  componentDidMount() {
-    this.props.toggleHeaderExistsProperty();
-  }
-
-  componentWillUnmount() {
-    this.props.toggleHeaderExistsProperty();
+  toggleNavOpen = () => {
+    const { isNavOpen } = this.state;
+    this.setState({ isNavOpen: !isNavOpen });
   }
 
   render() {
+    const renderNav = this.state.isNavOpen 
+    ? 
+    <ul className="header__nav">
+      <span className="header__nav--close" onClick={ () => this.toggleNavOpen() }>&times;</span>
+      <li className="header_nav--listItem parallelogram">
+        <NavLink to="/duel/duelboard" onClick={ () => this.toggleNavOpen() }>dueling</NavLink>
+      </li>
+      <li className="header_nav--listItem parallelogram">
+        <NavLink to="/duel/rules" onClick={ () => this.toggleNavOpen() }>official dueling rules</NavLink>
+      </li>
+      <li className="header_nav--listItem parallelogram">
+        <NavLink to="/duel/app-guide" onClick={ () => this.toggleNavOpen() }>how to use app</NavLink>
+      </li>
+    </ul> 
+    :
+    <div className="header__burger" onClick={ () => this.toggleNavOpen() }>
+      <div className="header__burger--inner">
+        <span className="top"></span>
+        <span className="middle"></span>
+        <span className="bottom"></span>
+      </div>
+    </div>
+    
+
     return (
       <Fragment>
         <ReactAudioPlayer
@@ -29,13 +49,9 @@ export default class Header extends Component {
           volume={0.2}
         />
 
-        <header>
-          <img src={ require('../../assets/yugioh-logo.png') } alt="classic yu-gi-oh logo" />
-          <ul>
-            <li><NavLink to="/duel/duelboard">dueling</NavLink></li>
-            <li><NavLink to="/duel/rules">official dueling rules</NavLink></li>
-            <li><NavLink to="/duel/app-guide">how to use app</NavLink></li>
-          </ul>
+        <header className="header">
+          <h1>y-c</h1>
+          {renderNav}
         </header>
       </Fragment>
     )

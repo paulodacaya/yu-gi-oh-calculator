@@ -3,39 +3,23 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 const PlayersInputForm = props => (
-
   <Fragment>
-    <form id="players-input-form" 
-          onSubmit={props.playersSubmitHandler}>
-        {/* PLAYER 1 */}
-        <input 
-          name="duelist1"
-          type="text"
-          onChange={props.handlePlayerInput}
-          value={props.duelist1}
-          placeholder="player 1" />
-        
-        {/* PLAYER 2 */}
-        <input
-          name="duelist2"
-          type="text"
-          onChange={props.handlePlayerInput}
-          value={props.duelist2}
-          placeholder="player 2" />
-
-        {/* SUBMIT BUTTON */}
-        <button
-          type="submit"
-          name="submit"
-          value="submit" >go</button>
-      </form>
+    <form className="intro__form" onSubmit={props.playersSubmitHandler}>
+      <fieldset>
+        <label htmlFor="duelist1" hidden>duelist 1</label>
+        <input id="duelist1" className="intro__form--input first" placeholder="dueslist 1" 
+          name="duelist1" type="text" value={props.duelist1}
+          onChange={props.handlePlayerInput} />
+        <label htmlFor="duelist2" hidden>duelist 2</label>
+        <input id="duelist2" className="intro__form--input" placeholder="duelist 2" 
+          name="duelist2" type="text" value={props.duelist2}
+          onChange={props.handlePlayerInput} />
+      </fieldset>
+      <button className ="intro__form--submitbtn" type="submit" name="submit" value="submit" >go</button>
+    </form>
       
-      {/* Redirect to /duel when form submits */}
-      {props.fireRedirect && (
-        <Redirect to='/duel' />
-      )}
-
-    </Fragment>
+    {props.fireRedirect && ( <Redirect to='/duel' /> )}
+  </Fragment>
 );
 
 PlayersInputForm.proptypes = {

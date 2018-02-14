@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Document, Page, } from 'react-pdf';
 
 export default class RuleBook extends Component {
@@ -26,15 +26,19 @@ export default class RuleBook extends Component {
     
     const renderPages = pageNumbers.map( pageNumber => 
       <Page
-        className="rulebook-page"
-        scale={1.3}
+        className="rulebook__page"
+        scale={1.2}
         pageNumber={pageNumber} />
     );
 
     return (
-      <div>
+      <Fragment>
+        <a className="rulebook__link" target="_blank" rel="noopener noreferrer" href="http://www.yugioh-card.com/oc/gameplay/detail.php?id=789">Click here to visit official website</a>
+
+        <hr />
+
         <Document 
-          className="rulebook-container"
+          className="rulebook"
           file={ require('../../assets/yugioh-official-rulebook.pdf') } 
           onLoadSuccess={this.onDocumentLoad}
           loading="loading... please wait."
@@ -42,7 +46,7 @@ export default class RuleBook extends Component {
 
           {renderPages}
         </Document>
-      </div>
+      </Fragment>
     );
   }
 }
