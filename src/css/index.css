@@ -564,6 +564,7 @@ button {
   text-align: center;
   text-transform: uppercase;
   overflow: hidden;
+  width: 100%;
 
   position: absolute;
   top: 50%;
