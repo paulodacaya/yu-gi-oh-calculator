@@ -644,6 +644,7 @@ button {
   text-align: center;
   width: 100%;
   padding: 1em;
+  overflow: hidden;
 }
 .notfound::before {
   background-color: var(--alto);
