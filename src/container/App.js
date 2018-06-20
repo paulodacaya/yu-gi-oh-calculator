@@ -252,12 +252,12 @@ export default class App extends Component {
             this.setWinner(index);
             this.onLogUpdate(`${duelist.name.toUpperCase()} has lost`);
             this.toggleDisplayResetCardProperty();
+            
+            // close calculator and add lostCount
             return {
               ...duelist,
               calcIsOpen: false,
               calculate: "",
-              prevlifePoints: lifePoints,
-              lifePoints: 8000,
               lostCount: lostCount + 1,
             }
           }
@@ -314,8 +314,18 @@ export default class App extends Component {
   }
 
   onNextRoundBtnClick = () => {
+
     this.setState({
       displayResetCard: false,
+
+      // reset life points
+      duelers: this.state.duelers.map( duelist => {
+        return {
+          ...duelist,
+          lifePoints: 8000,
+          prevlifePoints: 8000,
+        }
+      })
     })
   }
 
