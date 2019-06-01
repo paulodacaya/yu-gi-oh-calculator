@@ -6,7 +6,7 @@ An application that makes it easier for yu-gi-oh trading card game dueling. This
 
 ## Getting Started
 Please visit the following link where the application is hosted, VERSION 2 is now LIVE:
-[Yu-Gi-Oh Calculator](http://paulodacaya.xyz/yu-gi-oh-calculator/). Enjoy!
+[Yu-Gi-Oh Calculator](https://paulodacaya.github.io/yu-gi-oh-calculator/). Enjoy!
 
 ## Reason for remake/redesign in VERSION 2
 - was not appealing in smaller devices
